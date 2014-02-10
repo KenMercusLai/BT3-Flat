@@ -25,8 +25,17 @@
 
     <p><abbr class="icon-calendar" title="{{ article.date.isoformat() }}"> {{ article.locale_date }}</abbr></p>
 
+    <!-- {% if AUTHOR_SAVE_AS and article.author %}
+      <p><address class="icon-user"> By <a href="{{ SITEURL }}/{{ article.author.url }}" rel="author">{{ article.author }}</a></address></p>
+    {% endif %} -->
     {% if AUTHOR_SAVE_AS and article.author %}
       <p><address class="icon-user"> By <a href="{{ SITEURL }}/{{ article.author.url }}" rel="author">{{ article.author }}</a></address></p>
+      {% for title, link in (SOCIAL) %}
+        {% if 'plus.google.com' in link %}
+          <a href="{{link}}"?rel=author"></a>
+        {% endif %}
+        </ul>
+      {% endfor %}
     {% endif %}
 
     {% if PDF_PROCESSOR %}
