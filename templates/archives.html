@@ -47,7 +47,11 @@
               {% endif %}
 
               <dt><abbr class="published" title="{{ article.date.isoformat() }}">{{ article.date.strftime('%b. %d') }}</abbr></dt>
-              <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+              {% if article.link %}
+                <dd><a href="{{ article.link }}">{{ article.title }}</a></dd>
+              {% else %}
+                <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+              {% endif %}
 
               {% if loop.last %}
                 </dl>
