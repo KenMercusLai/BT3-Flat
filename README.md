@@ -86,9 +86,6 @@ TODO
 ----
 
   * Hack google search to integrate search result within theme design ?
-  * Replace Google custom search by https://swiftype.com/ ? Or better, static search:
-      * http://ralsina.com.ar/weblog/posts/standalone-search-in-nikola.html
-      * https://news.ycombinator.com/item?id=6958735
   * Use a big carousel for front-page articles (ex: http://twitter.github.com/bootstrap/examples/carousel.html ) + a bit of http://srobbin.com/jquery-plugins/backstretch/ to keep aspect-ratio
   * Check some web-dev essentials:
       * http://webdevchecklist.com/
@@ -131,7 +128,6 @@ TODO
   * Add links to yearly/monthly indexes in archives
   * Upgrade to Bootstrap 3.x
   * Use http://startbootstrap.com/modern-business for first page ?
-  * Upgrade to Font Awesome 4.X: http://fontawesome.io/whats-new/
   * Try to paginate monthly and yearly archives
   * Use Font-awesome CDN ? http://blog.fontawesome.io/2013/05/20/get-the-most-out-font-awesome-and-bootstrapcdn/
 
