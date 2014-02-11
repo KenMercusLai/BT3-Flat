@@ -10,7 +10,7 @@
 {% block top_center %}
   {% if article.link %}
   <h1>
-    <a href="{{ article.link }}" rel="bookmark" title="External Link to {{ article.title|striptags|e }}">❄ {{ article.title }} ❄</a>
+    <a href="{{ article.link }}" rel="bookmark" title="External Link to {{ article.title|striptags|e }}">{{ article.title }} <i class="fa fa-external-link"></i></a>
   </h1>
   {% else %}
   <h1>
@@ -23,14 +23,14 @@
 {% block right_sidebar %}
   <div class="well">
 
-    <p><abbr class="icon-calendar" title="{{ article.date.isoformat() }}"> {{ article.locale_date }}</abbr></p>
+    <p><abbr title="{{ article.date.isoformat() }}"><i class="fa fa-calendar"></i> {{ article.locale_date }}</abbr></p>
 
     <!-- {% if AUTHOR_SAVE_AS and article.author %}
       <p><address class="icon-user"> By <a href="{{ SITEURL }}/{{ article.author.url }}" rel="author">{{ article.author }}</a></address></p>
     {% endif %} -->
     <link rel="author" href="https://plus.google.com/u/0/+kenlaimercus?rel=author">
     {% if AUTHOR_SAVE_AS and article.author %}
-      <p><address class="icon-user"> By <a href="{{ SITEURL }}/{{ article.author.url }}" rel="author">{{ article.author }}</a></address></p>
+      <p><address><i class="fa fa-user"></i> By <a href="{{ SITEURL }}/{{ article.author.url }}" rel="author">{{ article.author }}</a></address></p>
     {% endif %}
 
     {% if PDF_PROCESSOR %}

@@ -12,7 +12,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="//www.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="//www.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/0.8.9/magnific-popup.css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/jquery.mglass.css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment-solarized-dark.css"/>
@@ -195,17 +195,17 @@
               {% endif %}
 
               {% if TAG_FEED_ATOM and tag is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" class="icon-rss"> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}"><i class="fa fa-rss"></i> Feed</a></li>
               {% elif TAG_FEED_RSS and tag is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" class="icon-rss"> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}"><i class="fa fa-rss"></i> Feed</a></li>
               {% elif CATEGORY_FEED_ATOM and category is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" class="icon-rss"> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}"><i class="fa fa-rss"></i> Feed</a></li>
               {% elif CATEGORY_FEED_RSS and category is defined %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" class="icon-rss"> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}"><i class="fa fa-rss"></i> Feed</a></li>
               {% elif FEED_ALL_ATOM %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" class="icon-rss"> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"><i class="fa fa-rss"></i> Feed</a></li>
               {% elif FEED_ALL_RSS %}
-                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" class="icon-rss"> Feed</a></li>
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"><i class="fa fa-rss"></i> Feed</a></li>
               {% endif %}
             </ul>
           </div>
@@ -230,7 +230,7 @@
           </div>
 
           <div class="span2">
-            <h5 class="pull-right"><a href="#" class="icon-arrow-up"> Back to top</a></h5>
+            <h5 class="pull-right"><a href="#"><i class="fa fa-arrow-up"></i> Back to top</a></h5>
           </div>
 
         </div>
