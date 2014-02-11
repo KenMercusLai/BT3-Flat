@@ -3,7 +3,7 @@ Plumage
 
 Plumage is a theme for [Pelican](http://getpelican.com) 3.2, a static site generator written in Python.
 
-I initially created this theme for [my blog](http://kevin.deldycke.com), but now the theme is supposed to be generic enough to have its own repository.
+I forked the original theme and customised some parts.
 
 ![Plumage article view](http://github.com/kdeldycke/plumage/raw/master/plumage-article-screenshot.png)
 
@@ -18,6 +18,8 @@ Features
   * YouTube links
   * Direct link to edit articles on Github
   * Pygments syntax highlighting
+  * Post share
+  * Post title link
 
 
 Plugins
@@ -26,7 +28,6 @@ Plugins
 Plumage has built-in support for the following plugins:
 
   * [`neighbors`](https://github.com/getpelican/pelican-plugins/tree/master/neighbors)
-  * [`pdf`](https://github.com/getpelican/pelican-plugins/tree/master/pdf)
   * [`related_posts`](https://github.com/getpelican/pelican-plugins/tree/master/related_posts)
   * [`typogrify`](https://github.com/getpelican/pelican-typogrify)
 
@@ -53,6 +54,8 @@ Plumage can be customized by adding these optionnal parameters to your `pelicanc
   * `DISQUS_SITENAME`: Disqus sitename identifier.
   * `GOOGLE_ANALYTICS`: Google Analytics unique identifier (e.g. `UA-XXXX-YYYY`).
   * `GOOGLE_ANALYTICS_DOMAIN`: Add the `_setDomainName` variable to Google Analytics' Javascript code.
+  * 'SHARE_POST': Show share post on the bottom of article or not
+
 
 Most of these [parameters are similar to `notmyidea`'s](http://docs.getpelican.com/en/latest/settings.html#themes) (Pelican's default theme). For usage example, please have a look into [my own `pelicanconf.py`](https://github.com/kdeldycke/kevin-deldycke-blog/blob/master/pelicanconf.py).
 
@@ -133,72 +136,19 @@ TODO
   * Use Font-awesome CDN ? http://blog.fontawesome.io/2013/05/20/get-the-most-out-font-awesome-and-bootstrapcdn/
 
 
-Contributors
-------------
-
-  * [Kevin Deldycke](https://github.com/kdeldycke)
-  * [Cedric Bosdonnat](https://github.com/cbosdo)
-  * [Jeff Smith](https://github.com/jeffreyksmithjr)
-  * [Stratos Gerakakis](https://github.com/stratosgear)
-
-
 Changelog
 ---------
 
-* **0.4.dev** (unreleased)
-  * Allow grouping of projects.
-  * Add option to overide disclaimer notice.
-  * Generate tags, categories and archives URLs depending on site configuration.
-  * Sort out inactive projects to the bottom of the project list.
-  * Drop support of old browsers.
-  * Move from jQuery 1.x to 2.x.
-
-* **0.3** (2013-08-16)
-  * Add auto-zoom of images based on Magnific Popup.
-  * Let the content take the available width if there is no right or left sidebars.
-  * Add an dynamic feed link in footer.
-  * Do not wrap code in code blocks.
-  * Fix code highlight for older Pelican versions.
-  * Escape and strip tags in all title attributes.
-  * Style ampersands for those using typogrify.
-
-* **0.2** (2013-07-09)
-  * Make theme fully generic through the use of variables.
-  * Replace custom navigation with Pelican's neighbors plugin.
-  * Add screenshot.
-  * Update documentation.
-
-* **0.1** (2013-07-07)
-  * Theme has now a name: Plumage.
-  * Move the theme out of my [blog repository](https://github.com/kdeldycke/kevin-deldycke-blog) to its own repository.
-  * Theme is now generic enough. Update TODO-list accordingly.
-
-* **0.0** (2012-12-23)
+* **2014W7** (2012-12-23)
   * First commit.
-
-
-Pushing Plumage to Pelican project
-----------------------------------
-
-This is just a note to myself on how to submit new stable releases of Plumage to [Pelican's theme repository](https://github.com/getpelican/pelican-themes).
-
-    $ git clone --recursive https://github.com/kdeldycke/pelican-themes
-    $ cd pelican-themes/plumage/
-    $ git checkout 0.X
-    $ cd ..
-    $ git add ./plumage
-    $ git commit -m "Update Plumage to version 0.X"
-    $ git push
-    $ cd ..
-    $ rm -rf ./pelican-themes
-
-Now [create a Pull Request](https://github.com/kdeldycke/pelican-themes/compare/getpelican:master...master) from GitHub web interface, and submit it for merging to the original repository.
-
+  * Share post option. Set SHARE_POST = True to enable share post link on the bottom of article.
+  * Add title link. Use 'Link' in meta post make the post title link to external post. Posts with external links will be marked by ❄
+  !()[https://dl.dropboxusercontent.com/u/299446/Sanagi/share%20post%20%26%20title%20link.png]
 
 License
 -------
 
-The content of this repository is copyrighted (c) 2012-2013 Kevin Deldycke.
+The content of this repository is copyrighted (c) 2012-2014 Ken Lai
 
 This code is free software: you can redistribute it and/or modify it under the
 terms of the GNU General Public License as published by the Free Software
