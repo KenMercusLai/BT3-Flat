@@ -144,7 +144,7 @@ Changelog
   * Share post option. Set SHARE_POST = True to enable share post link on the bottom of article.
   * Add title link. Use 'Link' in meta post make the post title link to external post. Posts with external links will be marked by ❄
   
-  !(share post & title link)[https://dl.dropboxusercontent.com/u/299446/Sanagi/share%20post%20%26%20title%20link.png]
+  ![share post & title link](https://dl.dropboxusercontent.com/u/299446/Sanagi/share%20post%20%26%20title%20link.png)
 
 License
 -------
