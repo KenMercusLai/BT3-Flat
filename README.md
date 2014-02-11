@@ -139,12 +139,14 @@ TODO
 Changelog
 ---------
 
-* **2014W7** (2012-12-23)
+* **2014W7**
   * First commit.
   * Share post option. Set SHARE_POST = True to enable share post link on the bottom of article.
-  * Add title link. Use 'Link' in meta post make the post title link to external post. Posts with external links will be marked by ❄
-  
+  * Added title link. Use 'Link' in meta post make the post title link to external post. Posts with external links will be marked by ❄
   ![share post & title link](https://dl.dropboxusercontent.com/u/299446/Sanagi/share%20post%20%26%20title%20link.png)
+  * Added Swiftype search engine, which has higher priority than google custom search engine
+  * Changed cloudflare cdn to other due to access lagging
+  * Fixed some icon display flaws
 
 License
 -------
