@@ -10,7 +10,7 @@
 {% block top_center %}
   {% if article.link %}
   <h1>
-    <a href="{{ article.link }}" rel="bookmark" title="External Link to {{ article.title|striptags|e }}">{{ article.title }}</a>
+    <a href="{{ article.link }}" rel="bookmark" title="External Link to {{ article.title|striptags|e }}">❄ {{ article.title }} ❄</a>
   </h1>
   {% else %}
   <h1>
@@ -99,6 +99,10 @@
         <li><a href="{{ SITEURL }}/{{ related_post.url }}">{{ related_post.title }}</a></li>
       {% endfor %}
       </ul>
+  {% endif %}
+
+  {% if SHARE_POST %}
+    {% include '_includes/share_post.html' %}
   {% endif %}
 
   {% if SITEURL and DISQUS_SITENAME %}
