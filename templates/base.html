@@ -11,7 +11,8 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="//www.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css"/> -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/0.8.9/magnific-popup.css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/jquery.mglass.css"/>
@@ -112,7 +113,7 @@
               </script>
             {% elif GOOGLE_SEARCH %}
               <form class="navbar-search pull-right" action="http://www.google.com" target="_blank">
-                <input type="text" name="q" class="search-query span2" placeholder="Search"/>
+                <input type="text" name="q" class="search-query col-lg-2 col-md-2 col-sm-2" placeholder="Search"/>
                 <div class="icon-search"></div>
                 <input type="hidden" name="cx" value="{{ GOOGLE_SEARCH }}" />
                 <input type="hidden" name="ie" value="UTF-8" />
@@ -127,7 +128,7 @@
         {% set has_right_content = has_right or RIGHT_SIDEBAR is defined %}
 
         <div class="row">
-          <div class="{% if (has_left_content and has_right_content) or LAYOUT == 'full-width' %} span6 {% elif has_left_content or has_right_content%} span9 {% else %} span12 {% endif %} {% if has_left_content %} offset3 {% endif %}">
+          <div class="{% if (has_left_content and has_right_content) or LAYOUT == 'full-width' %} col-lg-6 col-md-6 col-sm-6 {% elif has_left_content or has_right_content%} col-lg-9 col-md-9 col-sm-9 {% else %} col-lg-12 col-md-12 col-sm-12 {% endif %} {% if has_left_content %} offset3 {% endif %}">
             {% block top_center %}
             {% endblock %}
           </div>
@@ -136,20 +137,20 @@
         <div class="row">
 
           {% if LAYOUT != 'full-width' and has_left_content %}
-            <div class="span3">
+            <div class="col-lg-3 col-md-3 col-sm-3">
               {% block left_sidebar %}
               {% endblock %}
               {{ LEFT_SIDEBAR }}
             </div>
           {% endif %}
 
-          <div class="{% if LAYOUT == 'full-width' %} offset1 {% elif has_left_content and has_right_content %} span6 {% elif has_left_content or has_right_content %} span9 {% else %} span12 {% endif %}" id="content" role="main">
+          <div class="{% if LAYOUT == 'full-width' %} offset1 {% elif has_left_content and has_right_content %} col-lg-6 col-md-6 col-sm-6 {% elif has_left_content or has_right_content %} col-lg-9 col-md-9 col-sm-9 {% else %} col-lg-12 col-md-12 col-sm-12 {% endif %}" id="content" role="main">
             {% block content %}
             {% endblock %}
           </div>
 
           {% if LAYOUT != 'full-width' and has_right_content %}
-            <div class="span3">
+            <div class="col-lg-3 col-md-3 col-sm-3">
               {% block right_sidebar %}
               {% endblock %}
               {{ RIGHT_SIDEBAR }}
@@ -162,14 +163,14 @@
     </div>
 
     <!-- TODO: make footer sticky -->
-    <footer class="container-fluid">
+    <footer>
       <div class="container">
         <div class="row">
 
           {% set SOCIAL_TITLE = SOCIAL_TITLE or 'Social' %}
           {% set LINKS_TITLE  = LINKS_TITLE  or 'Links'  %}
           {% for group_title, group_links in ((SOCIAL_TITLE, SOCIAL), (LINKS_TITLE, LINKS)) %}
-            <div class="span2">
+            <div class="col-lg-2 col-md-2 col-sm-2">
               {% if group_links %}
                 <h5>{{ group_title }}</h5>
                 <ul class="unstyled">
@@ -181,7 +182,7 @@
             </div>
           {% endfor %}
 
-          <div class="span2">
+          <div class="col-lg-2 col-md-2 col-sm-2">
             <h5>Browse content by</h5>
             <ul class="unstyled">
               {% if CATEGORIES_SAVE_AS %}
@@ -210,7 +211,7 @@
             </ul>
           </div>
 
-          <div class="span2 muted">
+          <div class="col-lg-2 col-md-2 col-sm-2 muted">
             <h5>Copyright notice</h5>
             {% set date_start = dates[-1].date.year if dates else None %}
             {% set date_end   = dates[0].date.year if dates else None %}
@@ -220,7 +221,7 @@
             {% endif %}
           </div>
 
-          <div class="span2 muted">
+          <div class="col-lg-2 col-md-2 col-sm-2 muted">
             <h5>Disclaimer</h5>
             {% if DISCLAIMER %}
               <p>{{ DISCLAIMER }}</p>
@@ -229,7 +230,7 @@
             {% endif %}
           </div>
 
-          <div class="span2">
+          <div class="col-lg-2 col-md-2 col-sm-2">
             <h5 class="pull-right"><a href="#"><i class="fa fa-arrow-up"></i> Back to top</a></h5>
           </div>
 
@@ -237,7 +238,7 @@
       </div>
 
       <div class="container">
-        <div class="row span12 muted text-center">
+        <div class="row col-lg-12 col-md-12 col-sm-12 muted text-center">
           Site generated by <a href="http://getpelican.com"> Pelican</a>.<br/>
           <a href="https://github.com/kdeldycke/plumage"> Plumage</a> theme by <a href="http://kevin.deldycke.com">Kevin Deldycke</a>.
         </div>
@@ -268,7 +269,8 @@
       </script>
     {% endif %}
     <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script src="//www.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <!-- <script src="//www.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/jquery.magnific-popup/0.8.9/jquery.magnific-popup.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
     <script src="{{ SITEURL }}/theme/js/jquery.mglass.js"></script>
