@@ -86,9 +86,6 @@ TODO
 ----
 
   * Hack google search to integrate search result within theme design ?
-  * Replace Google custom search by https://swiftype.com/ ? Or better, static search:
-      * http://ralsina.com.ar/weblog/posts/standalone-search-in-nikola.html
-      * https://news.ycombinator.com/item?id=6958735
   * Use a big carousel for front-page articles (ex: http://twitter.github.com/bootstrap/examples/carousel.html ) + a bit of http://srobbin.com/jquery-plugins/backstretch/ to keep aspect-ratio
   * Check some web-dev essentials:
       * http://webdevchecklist.com/
@@ -131,7 +128,6 @@ TODO
   * Add links to yearly/monthly indexes in archives
   * Upgrade to Bootstrap 3.x
   * Use http://startbootstrap.com/modern-business for first page ?
-  * Upgrade to Font Awesome 4.X: http://fontawesome.io/whats-new/
   * Try to paginate monthly and yearly archives
   * Use Font-awesome CDN ? http://blog.fontawesome.io/2013/05/20/get-the-most-out-font-awesome-and-bootstrapcdn/
 
@@ -139,12 +135,14 @@ TODO
 Changelog
 ---------
 
-* **2014W7** (2012-12-23)
+* **2014W7**
   * First commit.
   * Share post option. Set SHARE_POST = True to enable share post link on the bottom of article.
-  * Add title link. Use 'Link' in meta post make the post title link to external post. Posts with external links will be marked by ❄
-  
-  !(share post & title link)[https://dl.dropboxusercontent.com/u/299446/Sanagi/share%20post%20%26%20title%20link.png]
+  * Added title link. Use 'Link' in meta post make the post title link to external post. Posts with external links will be marked by ❄
+  ![share post & title link](https://dl.dropboxusercontent.com/u/299446/Sanagi/share%20post%20%26%20title%20link.png)
+  * Added Swiftype search engine, which has higher priority than google custom search engine
+  * Changed cloudflare cdn to other due to access lagging
+  * Fixed some icon display flaws
 
 License
 -------
