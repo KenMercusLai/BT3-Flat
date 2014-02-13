@@ -126,10 +126,8 @@ TODO
       * To center the zoom icon, we can use one of these trick: http://codepen.io/shshaw/full/gEiDt
   * CSS typography: http://www.newnet-soft.com/blog/csstypography
   * Add links to yearly/monthly indexes in archives
-  * Upgrade to Bootstrap 3.x
   * Use http://startbootstrap.com/modern-business for first page ?
   * Try to paginate monthly and yearly archives
-  * Use Font-awesome CDN ? http://blog.fontawesome.io/2013/05/20/get-the-most-out-font-awesome-and-bootstrapcdn/
 
 
 Changelog
@@ -143,6 +141,7 @@ Changelog
   * Added Swiftype search engine, which has higher priority than google custom search engine
   * Changed cloudflare cdn to other due to access lagging
   * Fixed some icon display flaws
+  * Upgraded to Bootstrap 3
 
 License
 -------
