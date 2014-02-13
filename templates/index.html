@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>IsisOne - Personal or Agency Portfolio</title>
+    <title>{{ SITENAME }} - {{ SITESUBTITLE }}</title>
     <meta name="description" content="" />
-    <meta name="Author" content="Dorin Grigoras [www.stepofweb.com]" />
+    <meta name="Author" content="Ken M. Lai(networktsukkomime.me)" />
 
     <!--[if lt IE 9]>
       <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/html5.js"></script>
@@ -133,12 +133,6 @@
 
       <div id="slider">
 
-        <!-- slider navigation -->
-        <!-- <nav class="slides-navigation">
-          <a class="prev" href="#"></a>
-          <a class="next" href="#"></a>
-        </nav> -->
-
         <ul class="slides-container">
 
           <!-- Item 1 -->
@@ -154,38 +148,6 @@
             <span class="overlay"></span>
             <div style="background-image: url('http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/slider/background.jpg');" class="fullscreen-img"></div>
           </li>
-
-          <!-- Item 2 -->
-          <!-- <li>
-            <div class="image-caption">
-              <hr /><hr />
-              <div class="inner">
-                <h1 class="bigtext strtoupper nomargin">ONE PAGE DESIGN</h1>
-                <p>THE TEMPLATE IS EASY TO SET UP</p>
-              </div>
-              <hr /><hr />
-            </div> -->
-
-            <!--<span class="overlay"></span>-->
-            <!-- <div style="background-image: url('http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/slider/vision.jpg');" class="fullscreen-img"></div>
-          </li> -->
-
-
-          <!-- Item 3 -->
-          <!-- <li>
-            <div class="image-caption">
-              <hr /><hr />
-              <div class="inner">
-                <h2 class="strtoupper nomargin">RESPONSIVE LAYOUT</h2>
-              </div>
-              <hr /><hr />
-            </div> -->
-
-            <!--<span class="overlay"></span>-->
-            <!-- <div style="background-image: url('http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/slider/1.jpg');" class="fullscreen-img"></div>
-          </li> -->
-
-
         </ul>
 
       </div>
@@ -207,7 +169,7 @@
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
             <a class="navbar-brand scrollTo" href="#home">
-              <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/logo/100x100/white.png" alt="" width="50" height="50" /> 
+              <img src="https://dl.dropboxusercontent.com/u/299446/logo-invert.png" alt="" width="50" height="50" /> 
               <!--
                 Span class:
                   - dark
@@ -218,7 +180,7 @@
                   Example:
                     <span class="white">ISIS</span><span class="styleColor">ONE</span>
               -->
-              <span class="">ISIS ONE</span>
+              <span class="">{{ SITENAME|e }}</span>
             </a>
           </div>
 
@@ -232,9 +194,9 @@
               <li><a href="#home" class="scrollTo">Home</a></li>
               <li><a href="#about" class="scrollTo">About</a></li>
               <li><a href="#work" class="scrollTo">Work</a></li>
-              <li><a href="#services" class="scrollTo">Services</a></li>
+              <!-- <li><a href="#services" class="scrollTo">Services</a></li> -->
               <li><a href="blog.html">Blog</a></li>
-              <li><a href="#contact" class="scrollTo">Contact</a></li>
+              <!-- <li><a href="#contact" class="scrollTo">Contact</a></li> -->
             </ul>
           </div><!-- /.navbar-collapse -->
 
@@ -258,41 +220,45 @@
 
         <div class="divider"><!-- lines divider --></div>
 
-        <article class="text-center big-paragraph">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa.</p>
-        </article>
+        {% if PERSONAL_INFO %}
+          <article class="text-center big-paragraph">
+            <p>{{PERSONAL_INFO}}</p>
+          </article>
+        {% endif %}
 
-        <div class="me-picture text-center">
-          <div class="item">
-            <img class="img-responsive" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/content/people/2.jpg" width="200" height="200" alt="" />
-          </div><hr />
-        </div>
+        {% if PERSONAL_PHOTO %}
+          <div class="me-picture text-center">
+            <div class="item">
+              <img class="img-responsive" src="{{PERSONAL_PHOTO}}" width="200" height="200" alt="" />
+            </div><hr />
+          </div>
+        {% endif %}
 
-        <article>
-          <div class="row text-left">
+        <!-- <article>
+          <div class="row text-left"> -->
 
             <!-- Passion -->
-            <div class="col-md-4">
+           <!--  <div class="col-md-4">
               <h3>Passion</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
-            </div>
+            </div> -->
 
 
             <!-- Precision -->
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <h3>Precision</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
-            </div>
+            </div> -->
 
 
             <!-- Simplicity -->
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <h3>Simplicity</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
-            </div>
+            </div> -->
 
-          </div>
-        </article>
+          <!-- </div>
+        </article> -->
 
         <!-- curriculum vitae button  -->
         <!--
@@ -422,185 +388,6 @@
     </section>
     <!-- /WORK -->
 
-    <!-- CALL NOW -->
-    <section class="util-row">
-      <div class="container text-center">
-
-        <header data-animation="bounceIn">
-          <h1 class="no-text-transform italic">Only one step to work together</h1>
-        </header>
-
-        <article class="text-center">
-          <h2>1-800-555-12345</h2>
-          <p>CALL ME NOW - or - <a href="#contact" class="scrollTo">MESSAGE ME</a></p>
-        </article>
-
-      </div>
-    </section>
-    <!-- CALL NOW -->
-
-
-
-    <!-- SERVICES -->
-    <section id="services">
-
-      <header class="text-center">
-        <h1>SERVICES</h1>
-      </header>
-
-      <div class="divider"><!-- lines divider --></div>
-
-      <div class="inner-cover" style="background-image:url('http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/slider/3.jpg')">
-
-        <!--
-          Optional - raster or overlay backgrounds, for brighten images.
-          <span class="raster"></span>
-
-          Default overlay: black, opacity 0.5
-          Gray overlay: #212121 , opacity 0.9
-          Remove 'gray' class for default overlay
-
-          <span class="overlay gray"></span>
-        -->
-        <span class="overlay gray"></span>
-
-
-        <div class="container text-center">
-
-          <ul class="services animate_from_bottom">
-            <li><!-- service 1 -->
-              <a href="#service-1" class="service yellow scrollTo">
-                <i class="icon-globe"></i>
-                <h3>Corporate Identity</h3>
-              </a>
-            </li>
-
-            <li><!-- service 2 -->
-              <a href="#service-2" class="service orange scrollTo">
-                <i class="icon-eye"></i>
-                <h3>Graphic Design</h3>
-              </a>
-            </li>
-
-            <li><!-- service 3 -->
-              <a href="#service-3" class="service mauve scrollTo">
-                <i class="fa fa-code"></i>
-                <h3>Development</h3>
-              </a>
-            </li>
-
-            <li><!-- service 4 -->
-              <a href="#service-4" class="service green scrollTo">
-                <i class="icon-videocam"></i>
-                <h3>Video</h3>
-              </a>
-            </li>
-
-            <li><!-- service default -->
-              <a href="#service-4" class="service scrollTo">
-                <i class="fa fa-smile-o"></i>
-                <h3>Default</h3>
-              </a>
-            </li>
-          </ul>
-
-          <div class="services-nav">
-            <a id="service-prev" href="#"><i class="fa fa-chevron-left"></i></a>
-            <a id="service-next" href="#"><i class="fa fa-chevron-right"></i></a>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!--
-        BOOTSTRAP GRID USED
-        http://getbootstrap.com/css/#grid
-      -->
-      <!-- service 1 -->
-      <article id="service-1" class="container service-desc animate_fade_in">
-        <div class="row">
-          <div class="col-xs-12 col-md-3 text-left">
-            <h3><i class="yellow fa fa-stop"></i> Corporate Identity</h3>
-          </div>
-          <div class="col-xs-6 col-md-3 text-left">
-            <ul>
-              <li>Naming</li>
-              <li>Logo design</li>
-              <li>Brandbooks</li>
-            </ul>
-          </div>
-          <div class="col-xs-6 col-md-6 text-left">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- service 2 -->
-      <article id="service-2" class="container service-desc animate_fade_in">
-        <div class="row">
-          <div class="col-xs-12 col-md-3 text-left">
-            <h3><i class="orange fa fa-stop"></i> Graphic Design</h3>
-          </div>
-          <div class="col-xs-6 col-md-6 text-left">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Ut enim massa, sodales tempor convallis et, iaculis ac massa.</p>
-          </div>
-          <div class="col-xs-6 col-md-3 text-right">
-            <ul>
-              <li>2D &amp; 3D Animation</li>
-              <li>TV Spots</li>
-              <li>Corporate videos</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <!-- service 3 -->
-      <article id="service-3" class="container service-desc animate_fade_in">
-        <div class="row">
-          <div class="col-xs-12 col-md-3 text-left">
-            <h3><i class="mauve fa fa-stop"></i> Development</h3>
-          </div>
-          <div class="col-xs-12 col-md-9 text-left">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque. Etiam suscipit nisl eget lorem pellentesque quis iaculis mi mattis.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- service 4 -->
-      <article id="service-4" class="container service-desc animate_fade_in">
-        <div class="row">
-          <div class="col-xs-12 col-md-3 text-left">
-            <h3><i class="green fa fa-stop"></i> Video</h3>
-          </div>
-          <div class="col-xs-6 col-md-3 text-left">
-            <ul>
-              <li>2D &amp; 3D Animation</li>
-              <li>TV Spots</li>
-              <li>Corporate videos</li>
-            </ul>
-          </div>
-          <div class="col-xs-4 col-md-3 text-left">
-            <ul>
-              <li>Adverts</li>
-              <li>Packaging design</li>
-              <li>Stands &amp; Rollups</li>
-            </ul>
-          </div>
-          <div class="col-xs-4 col-md-3 text-left">
-            <ul>
-              <li>Adverts</li>
-              <li>Packaging design</li>
-              <li>Stands &amp; Rollups</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-    </section>
-    <!-- SERVICES -->
-
-
 
     <!-- BLOG -->
     <section id="quick-blog" class="alternate">
@@ -670,68 +457,14 @@
     </section>
     <!-- /BLOG -->
 
-
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <header class="text-center">
-          <h1>CONTACT</h1>
-        </header>
-
-        <div class="divider"><!-- lines divider --></div>
-
-        <article>
-          <p class="text-center big-paragraph">
-            Drop me a line or just say <strong><em>Hello!</em></strong>
-            <small class="fsize15 block">
-              Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit. <br />
-              Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc.
-            </small>
-          </p>
-        </article>
-
-        <article>
-
-          <!-- Alert -->
-          <div id="_sent_ok_" class="alert alert-success fade in fsize16 hide">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <span id="_msg_txt_"><strong>Thank You!</strong> Your message successfully sent!</span>
-          </div>
-
-          <!-- Form -->
-          <form id="contactForm" method="post" action="php/contact.php" class="white block form-inline">
-            <div class="row">
-              <div class="col-md-4"><input required class="fullwidth" type="text" name="contact_name" id="contact_name" value="" placeholder="NAME *" title="Name" /></div>
-              <div class="col-md-4"><input required class="fullwidth" type="email" name="contact_email" id="contact_email" value="" placeholder="EMAIL *" title="Email" /></div>
-              <div class="col-md-4"><input class="fullwidth" type="text" name="contact_subject" id="contact_subject" value="" placeholder="SUBJECT" title="subject" /></div>
-            </div>
-
-            <div class="row">
-              <div class="col-md-12"><textarea required class="fullwidth" rows="5" name="contact_comment" id="contact_comment" placeholder="MESSAGE *"></textarea></div>
-              <div class="col-md-12">
-                <input type="hidden" name="captcha" id="captcha" value="" /><!-- hidden field - humans should not see it, only spam bots will see it -->
-                <button id="contact_submit" class="btn btn-default">SEND MESSAGE</button>
-              </div>
-            </div>
-          </form>
-
-        </article>
-
-      </div>
-    </section>
-    <!-- /CONTACT -->
-
-
-
     <!-- QUOTE -->
-    <section class="cover" style="background-image:url('http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/slider/road.jpg')">
+    <!-- <section class="cover" style="background-image:url('http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/slider/road.jpg')">
       <span class="overlay"></span>
       <div class="container text-center" data-animation="bounceIn">
         <q>We can't solve problems by using the same kind of thinking we used when we created them.</q>
         <cite>Albert Einstein</cite>
       </div>
-    </section>
+    </section> -->
     <!-- /QUOTE -->
 
 
@@ -748,14 +481,14 @@
         <div class="row">
 
           <div class="col-md-6 copyright">
-            Your Company, LTD<br />
+            {{ SITENAME|e }}<br />
             2014 &copy; All Rights Reserved.
           </div>
 
           <div class="col-md-6 text-right">
-            <a href="#" class="social fa fa-facebook"></a>
-            <a href="#" class="social fa fa-twitter"></a>
-            <a href="#" class="social fa fa-google-plus"></a>
+            {% for group_title, group_link in SOCIAL %}
+              <a href="{{group_link}}" class="social fa fa-{{group_title|lower}}"></a>
+            {% endfor %}
           </div>
 
         </div>
