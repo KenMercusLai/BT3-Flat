@@ -1,4 +1,4 @@
-body, input, button, select, textarea, li, .navbar-search .search-query {
+body, input, button, select, textarea, li, .navbar-form .search-query {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 24px;
@@ -24,7 +24,6 @@ body {
   background-color: transparent;
 }
 
-
 .page-header {
   margin: 0;
   border-bottom: none;
@@ -37,6 +36,9 @@ body {
   text-decoration: none;
 }
 
+.page-header .page-title {
+  vertical-align: bottom;
+}
 
 /* Card flip inspired by http://learn.shayhowe.com/advanced-html-css/transitions-animations */
 /* Possible alternative: use https://github.com/mintchaos/flippant.js */
@@ -109,32 +111,14 @@ body {
 
 
 /* Only display site's name in the navbar if it's fixed */
-.navbar .brand {
-  display: none;
-}
-.navbar .navbar-inner {
+/*.navbar-nav .container {
   box-shadow: 0 2px 10px rgba(0, 0, 0, .25);
-}
-.navbar.navbar-fixed-top .brand {
-  display: block;
-}
-.navbar.navbar-fixed-top .navbar-inner {
+}*/
+
+.navbar-nav.navbar-fixed-top .container {
   padding-right: 20px;
   padding-left: 20px;
 }
-
-
-/* Add a search icon in navbar's search field */
-.navbar-search .search-query {
-  padding-left: 29px;
-  height: inherit;
-}
-.navbar-search .icon-search {
-  position: absolute;
-  top: 7px;
-  left: 11px;
-}​
-
 
 h1, h2 {
   text-shadow: 1px 1px 1px #ddd;
@@ -162,7 +146,7 @@ a {
   -o-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
 }
-.muted a {
+.text-muted a {
   color: #999;
 }
 
@@ -300,7 +284,7 @@ footer .container .span12 {
 footer, footer li {
   font-size: 14px;
 }
-footer .muted {
+footer .text-muted {
   font-size: 12px;
   line-height: 13px;
 }

@@ -10,9 +10,7 @@
     <meta name="author" content="{{ author|e }}"/>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="//www.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.min.css"/> -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/0.8.9/magnific-popup.css"/>
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/jquery.mglass.css"/>
@@ -71,7 +69,7 @@
           {% if SITE_THUMBNAIL %}
             <a href="{{ SITEURL }}" class="avatar-container">
               <div class="avatar {% if SITE_THUMBNAIL_TEXT %} animate {% endif %}">
-                <div class="side"><img src="{{ SITE_THUMBNAIL }}"/></div>
+                <div class="side"><img src="{{ SITE_THUMBNAIL }}" width='74' height='74'/></div>
                 {% if SITE_THUMBNAIL_TEXT %}
                   <div class="side back"><p class="text-center">{{ SITE_THUMBNAIL_TEXT }}</p></div>
                 {% endif %}
@@ -81,46 +79,49 @@
           <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a> <small>{{ SITESUBTITLE }}</small></h1>
         </div>
 
-        <div class="navbar">
-          <div class="navbar-inner">
-            <a class="brand" href="{{ SITEURL }}" title="{{ SITESUBTITLE|e }}">{{ SITENAME }}</a>
-            <ul class="nav">
-              {% for title, link in MENUITEMS %}
-                {% set active_page = page is defined and link == "/%s"|format(page.url) -%}
-                <li {% if active_page %} class="active" {% endif %}><a href="{{ link }}">{{ title }}</a></li>
-              {% endfor %}
-              {% if DISPLAY_PAGES_ON_MENU %}
-                {% for p in PAGES %}
-                  <li {% if p == page %} class="active" {% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+        <nav class="navbar-nav navbar-default" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand hidden" href="{{ SITEURL }}" title="{{ SITESUBTITLE|e }}">{{ SITENAME }}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                {% for title, link in MENUITEMS %}
+                  {% set active_page = page is defined and link == "/%s"|format(page.url) -%}
+                  <li {% if active_page %} class="active" {% endif %}><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
-              {% endif %}
-            </ul>
-            {% if SWIFTYPE %}
-              <form>
-                <input type="text" id="st-search-input" class="st-search-input navbar-search pull-right" />
-              </form>
-              <script type="text/javascript">
-              var Swiftype = window.Swiftype || {};
-                (function() {
-                  Swiftype.key = '{{ SWIFTYPE }}';
+                {% if DISPLAY_PAGES_ON_MENU %}
+                  {% for p in PAGES %}
+                    <li {% if p == page %} class="active" {% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+              {% if SWIFTYPE %}
+                <form class="navbar-form navbar-right">
+                  <input type="text" id="st-search-input" class="search-query form-control col-lg-2 col-md-2 col-sm-2" placeholder="Search"/>
+                </form>
+                <script type="text/javascript">
+                var Swiftype = window.Swiftype || {};
+                  (function() {
+                    Swiftype.key = '{{ SWIFTYPE }}';
 
-                  /** DO NOT EDIT BELOW THIS LINE **/
-                  var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-                  script.src = "//s.swiftypecdn.com/embed.js";
-                  var entry = document.getElementsByTagName('script')[0];
-                  entry.parentNode.insertBefore(script, entry);
-                }());
-              </script>
-            {% elif GOOGLE_SEARCH %}
-              <form class="navbar-search pull-right" action="http://www.google.com" target="_blank">
-                <input type="text" name="q" class="search-query col-lg-2 col-md-2 col-sm-2" placeholder="Search"/>
-                <div class="icon-search"></div>
-                <input type="hidden" name="cx" value="{{ GOOGLE_SEARCH }}" />
-                <input type="hidden" name="ie" value="UTF-8" />
-              </form>
-            {% endif %}
+                    /** DO NOT EDIT BELOW THIS LINE **/
+                    var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+                    script.src = "//s.swiftypecdn.com/embed.js";
+                    var entry = document.getElementsByTagName('script')[0];
+                    entry.parentNode.insertBefore(script, entry);
+                  }());
+                </script>
+              {% elif GOOGLE_SEARCH %}
+                <form class="navbar-form navbar-right" action="http://www.google.com" target="_blank">
+                  <input type="text" name="q" class="search-query form-control col-lg-2 col-md-2 col-sm-2" placeholder="Search"/>
+                  <input type="hidden" name="cx" value="{{ GOOGLE_SEARCH }}" />
+                  <input type="hidden" name="ie" value="UTF-8" />
+                </form>
+              {% endif %}
+            </div>
           </div>
-        </div>
+        </nav>
       </header>
 
       <section>
@@ -173,7 +174,7 @@
             <div class="col-lg-2 col-md-2 col-sm-2">
               {% if group_links %}
                 <h5>{{ group_title }}</h5>
-                <ul class="unstyled">
+                <ul class="list-unstyled">
                 {% for title, link in group_links %}
                   <li>{{ m.render_link_icon(link, title) }}</li>
                 {% endfor %}
@@ -184,7 +185,7 @@
 
           <div class="col-lg-2 col-md-2 col-sm-2">
             <h5>Browse content by</h5>
-            <ul class="unstyled">
+            <ul class="list-unstyled">
               {% if CATEGORIES_SAVE_AS %}
                 <li><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}" class="icon-tags"> Categories</a></li>
               {% endif %}
@@ -211,7 +212,7 @@
             </ul>
           </div>
 
-          <div class="col-lg-2 col-md-2 col-sm-2 muted">
+          <div class="col-lg-2 col-md-2 col-sm-2 text-muted">
             <h5>Copyright notice</h5>
             {% set date_start = dates[-1].date.year if dates else None %}
             {% set date_end   = dates[0].date.year if dates else None %}
@@ -221,7 +222,7 @@
             {% endif %}
           </div>
 
-          <div class="col-lg-2 col-md-2 col-sm-2 muted">
+          <div class="col-lg-2 col-md-2 col-sm-2 text-muted">
             <h5>Disclaimer</h5>
             {% if DISCLAIMER %}
               <p>{{ DISCLAIMER }}</p>
@@ -238,7 +239,7 @@
       </div>
 
       <div class="container">
-        <div class="row col-lg-12 col-md-12 col-sm-12 muted text-center">
+        <div class="row col-lg-12 col-md-12 col-sm-12 text-muted text-center">
           Site generated by <a href="http://getpelican.com"> Pelican</a>.<br/>
           <a href="https://github.com/kdeldycke/plumage"> Plumage</a> theme by <a href="http://kevin.deldycke.com">Kevin Deldycke</a>.
         </div>
@@ -268,10 +269,10 @@
         })();
       </script>
     {% endif %}
-    <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-    <!-- <script src="//www.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//cdn.jsdelivr.net/jquery.magnific-popup/0.8.9/jquery.magnific-popup.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.magnific-popup/0.9.9/jquery.magnific-popup.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
     <script src="{{ SITEURL }}/theme/js/jquery.mglass.js"></script>
     <script src="{{ SITEURL }}/theme/js/application.js"></script>

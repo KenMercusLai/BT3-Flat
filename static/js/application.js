@@ -6,8 +6,8 @@
 
     // Subnav fixing code from https://github.com/thomaspark/bootswatch/blob/gh-pages/js/application.js
     var $win = $(window)
-      , $nav = $('.navbar')
-      , navTop = $('.navbar').length && $('.navbar').offset().top
+      , $nav = $('nav.navbar-nav')
+      , navTop = $('nav.navbar-nav').length && $('.navbar-nav').offset().top
       , isFixed = 0
     processScroll()
     $win.on('scroll', processScroll)
@@ -16,9 +16,12 @@
       if (scrollTop >= navTop && !isFixed) {
         isFixed = 1
         $nav.addClass('navbar-fixed-top')
+        $('.navbar-brand').removeClass('hidden')
+        $('.navbar-brand').css('display', 'block')
       } else if (scrollTop <= navTop && isFixed) {
         isFixed = 0
         $nav.removeClass('navbar-fixed-top')
+        $('.navbar-brand').addClass('hidden')
       }
     };
 
@@ -54,6 +57,7 @@
           $('<a/>').attr('href', $(this).attr('src'))
         );
       };
+
       // Add a special class for images linking to videos
       var link_tag = $(this).closest('a');
       if (parse_youtube_url(link_tag.attr('href')) != false) {
@@ -71,6 +75,7 @@
             easing: 'ease-in-out',
           },
         });
+        $(this).css('max-width', $('div#content').width());
       };
       // Add overlay zoom icon
       $(this).mglass({opacity: 1,});

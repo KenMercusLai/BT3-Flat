@@ -39,7 +39,7 @@
 
     <hr/>
 
-    {% if article.category or article.tags %}
+    {% if not article.category or article.tags %}
       <p>
         {% if article.category %}
           {% for category, articles in categories %}
