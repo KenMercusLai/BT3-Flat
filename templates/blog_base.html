@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title>{{ SITENAME }} - {{ SITESUBTITLE }}</title>
+  <meta name="description" content="" />
+  <meta name="Author" content="Ken M. Lai(networktsukkomime.me)" />
+
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/html5.js"></script>
+    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/respond.min.js"></script>
+    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/excanvas.compiled.js"></script>
+  <![endif]-->
+
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Dosis:300,400" rel="stylesheet" type="text/css" />
+
+
+  <!-- CORE CSS FRAMEWORK -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href="{{SITEURL}}/theme/css/linecons.css" rel="stylesheet" type="text/css" />
+
+  <!-- PLUGINS -->
+  <link href="{{SITEURL}}/theme/css/superslides.css" rel="stylesheet" type="text/css" />
+  <link href="{{SITEURL}}/theme/css/owl.carousel.css" rel="stylesheet" type="text/css" />
+  <link href="{{SITEURL}}/theme/css/magnific-popup.css" rel="stylesheet" type="text/css" />
+
+  <!-- CSS TEMPLATE -->
+  <link href="{{SITEURL}}/theme/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="{{SITEURL}}/theme/css/framework.css" rel="stylesheet" type="text/css" />
+  <link href="{{SITEURL}}/theme/css/typography.css" rel="stylesheet" type="text/css" />
+  <link href="{{SITEURL}}/theme/css/layout.css" rel="stylesheet" type="text/css" />
+
+  <link href="{{SITEURL}}/theme/css/blog.css" rel="stylesheet" type="text/css" />
+
+  <link href="{{SITEURL}}/theme/css/green.css" rel="stylesheet" type="text/css" />
+
+  <!-- ICONS -->
+  {% if FAVICON %}
+  <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />{% endif %} {% if ICON %}
+  <link rel="icon" href="{{ICON}}" type="image/x-icon" />{% endif %} {% if SHORTCUT_ICON %}
+  <link rel="shortcut icon" href="{{SHORTCUT_ICON}}" type="image/x-icon" />{% endif %}
+
+  <!-- mobile settings -->
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+  <!-- Morenizr -->
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/modernizr.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Main Nav -->
+  <header id="header">
+
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenu" class="fa fa-bars" type="button" data-toggle="collapse" data-target=".navbar-collapse"></button>
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand scrollTo" href="#home">
+            <img src="https://dl.dropboxusercontent.com/u/299446/logo-invert.png" alt="" width="50" height="50" />
+            <span class="hidden-xs">{{ SITENAME|e }}</span>
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <!-- Fullscreen Button - Unavailable for IE -->
+          <a href="#" class="btn-fullscreen"><i class="fa fa-external-link"></i></a>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#home" class="scrollTo">Home</a>
+            </li>
+            <li><a href="#about" class="scrollTo">About</a>
+            </li>
+            <li><a href="#work" class="scrollTo">Work</a>
+            </li>
+            <li><a href="{{SITEURL}}/blog.html">Blog</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- /Main Nav -->
+  <section id="blog">
+      <article class="container">
+
+          <div class="row">
+              <div class="left col-md-9">
+                  {% block content_area %}
+                  {% endblock %}
+              </div>
+
+              <!-- SIDEBAR -->
+              <div class="right col-md-3">
+
+                  <!-- blog search -->
+                  <div class="widget">
+
+                      <h3>Blog Search</h3>
+
+                      <form action="#" method="get" class="blog-search col-lg-12 nomargin nopadding">
+                          <div class="input-group input-group-lg">
+                              <input type="text" class="form-control" name="s" id="s" placeholder="..." />
+                              <span class="input-group-btn">
+                                  <button class="btn btn-primary"><i class="fa fa-search"></i>
+                                  </button>
+                              </span>
+                          </div>
+                      </form>
+                  </div>
+
+                  <!-- recent work -->
+                  <div class="widget">
+
+                      <h3>Recent Work</h3>
+
+                      <a class="popup-image thumb" href="assets/images/preview/slider/1.jpg">
+                          <img src="{{SITEURL}}/theme/img/1x1.png" class="img-responsive" data-src="holder.js/85x85/#888:#555555/auto/" alt="img" />
+                      </a>
+                      <a class="popup-video thumb" href="http://www.youtube.com/watch?v=kh29_SERH0Y?rel=0">
+                          <img src="{{SITEURL}}/theme/img/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#676767:#555555/auto/" alt="img" />
+                      </a>
+                      <a class="popup-video thumb" href="http://vimeo.com/23630702">
+                          <img src="{{SITEURL}}/theme/img/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#888:#555555/auto/" alt="img" />
+                      </a>
+
+                      <a class="external ajax-project thumb" href="project-external-1.html">
+                          <img src="{{SITEURL}}/theme/img/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#676767:#555555/auto/" alt="img" />
+                      </a>
+                      <a class="external ajax-project thumb" href="project-external-2.html">
+                          <img src="{{SITEURL}}/theme/img/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#888:#555555/auto/" alt="img" />
+                      </a>
+                      <a class="external ajax-project thumb" href="project-external-3.html">
+                          <img src="{{SITEURL}}/theme/img/1x1.png" class="ajax-project img-responsive" data-src="holder.js/85x85/#676767:#555555/auto/" alt="img" />
+                      </a>
+
+                      <div class="clearfix"></div>
+                  </div>
+
+                  <!-- categories -->
+                  <div class="widget">
+
+                      <h3>Categories</h3>
+
+                      <ul>
+                          <li><a href="blog.html"><i class="fa fa-dot-circle-o"></i> Business</a>
+                          </li>
+                          <li><a href="blog.html"><i class="fa fa-dot-circle-o"></i> Audio</a>
+                          </li>
+                          <li><a href="blog.html"><i class="fa fa-dot-circle-o"></i> Creative</a>
+                          </li>
+                          <li><a href="blog.html"><i class="fa fa-dot-circle-o"></i> Funny</a>
+                          </li>
+                      </ul>
+
+                  </div>
+
+                  <!-- recent posts -->
+                  <div class="widget">
+
+                      <h3>Recent Posts</h3>
+
+                      <ul>
+                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> This is a Gallery Post</a> 
+                              <small>23 June 2013 / 12:43</small>
+                          </li>
+                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> Blog Post With Text Only</a> 
+                              <small>23 June 2013 / 12:43</small>
+                          </li>
+                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> This is an Audio Post</a> 
+                              <small>23 June 2013 / 12:43</small>
+                          </li>
+                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> This is a Video Post</a> 
+                              <small>23 June 2013 / 12:43</small>
+                          </li>
+                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> An awsome post</a> 
+                              <small>23 June 2013 / 12:43</small>
+                          </li>
+                      </ul>
+
+                  </div>
+
+              </div>
+              <!-- /SIDEBAR -->
+
+          </div>
+
+      </article>
+  </section>
+  <!-- /BLOG -->
+
+
+
+  <!-- FOOTER -->
+  <footer>
+
+      <!-- SCROOL TO TOP -->
+      <a href="#toTop" class="fa fa-arrow-up toTop"></a>
+
+      <div class="container">
+
+          <div class="row">
+
+              <div class="col-md-6 copyright">
+                  Your Company, LTD
+                  <br />2014 &copy; All Rights Reserved.
+              </div>
+
+              <div class="col-md-6 text-right">
+                  <a href="#" class="social fa fa-facebook"></a>
+                  <a href="#" class="social fa fa-twitter"></a>
+                  <a href="#" class="social fa fa-google-plus"></a>
+              </div>
+
+          </div>
+
+      </div>
+  </footer>
+  <!-- /FOOTER -->
+
+
+
+  <!-- CORE FILES -->
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery-1.10.2.min.js"></script>
+  <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.isotope.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/masonry.js"></script>
+
+  <!-- PLUGINS -->
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.fitvids.min.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.superslides.min.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.carouFredSel-6.2.1-packed.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.countTo.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.magnific-popup.min.js"></script>
+  <script type="text/javascript" src="{{SITEURL}}/theme/js/holder.js"></script>
+  <!-- delete on production -->
+
+  <!-- js scripts -->
+  <script async type="text/javascript" src="{{SITEURL}}/theme/js/scripts.js"></script>
+
+  <script async type="text/javascript" src="{{SITEURL}}/theme/js/styleswitcher.js"></script>
+
+
+  <!-- Change UA-XXXXX-X with your site ID -->
+  <!--<script>
+          window._gaq = [['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
+          Modernizr.load({load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'});
+      </script>  -->
+
+</body>
+
+</html>

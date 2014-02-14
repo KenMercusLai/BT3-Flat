@@ -19,114 +19,43 @@
 
 
     <!-- CORE CSS FRAMEWORK -->
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/font-linecons/linecons.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="{{SITEURL}}/theme/css/linecons.css" rel="stylesheet" type="text/css" />
 
     <!-- PLUGINS -->
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/superslides.css" rel="stylesheet" type="text/css" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/owl.carousel.css" rel="stylesheet" type="text/css" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
+    <link href="{{SITEURL}}/theme/css/superslides.css" rel="stylesheet" type="text/css" />
+    <link href="{{SITEURL}}/theme/css/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="{{SITEURL}}/theme/css/magnific-popup.css" rel="stylesheet" type="text/css" />
 
     <!-- CSS TEMPLATE -->
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/framework.css" rel="stylesheet" type="text/css" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/typography.css" rel="stylesheet" type="text/css" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="{{SITEURL}}/theme/css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="{{SITEURL}}/theme/css/framework.css" rel="stylesheet" type="text/css" />
+    <link href="{{SITEURL}}/theme/css/typography.css" rel="stylesheet" type="text/css" />
+    <link href="{{SITEURL}}/theme/css/layout.css" rel="stylesheet" type="text/css" />
 
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/blog.css" rel="stylesheet" type="text/css" />
+    <link href="{{SITEURL}}/theme/css/blog.css" rel="stylesheet" type="text/css" />
 
-    <!-- colors : demo only -->
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/green.css" rel="stylesheet" type="text/css" /><!-- default style : green-->
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/blue.css" rel="alternate stylesheet" type="text/css" title="blue" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/orange.css" rel="alternate stylesheet" type="text/css" title="orange" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/green.css" rel="alternate stylesheet" type="text/css" title="green" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/red.css" rel="alternate stylesheet" type="text/css" title="red" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/yellow.css" rel="alternate stylesheet" type="text/css" title="yellow" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/gray.css" rel="alternate stylesheet" type="text/css" title="gray" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/pink.css" rel="alternate stylesheet" type="text/css" title="pink" />
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/css/color/mauve.css" rel="alternate stylesheet" type="text/css" title="mauve" />
+     <link href="{{SITEURL}}/theme/css/green.css" rel="stylesheet" type="text/css" />
 
     <!-- ICONS -->
-    <link rel="shortcut icon" href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/favicon.png" type="image/x-icon" />
-    <link rel="icon" href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/favicon.ico" type="image/x-icon" />
+    {% if FAVICON %}
+      <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />
+    {% endif %}
+    {% if ICON %}
+      <link rel="icon" href="{{ICON}}" type="image/x-icon" />
+    {% endif %}
+    {% if SHORTCUT_ICON %}
+      <link rel="shortcut icon" href="{{SHORTCUT_ICON}}" type="image/x-icon" />
+    {% endif %}
 
     <!-- mobile settings -->
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
 
-    <!-- STYLESWITCHER -->
-    <link href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/styleswitcher/styleswitcher.css" rel="stylesheet" type="text/css"/>
-
     <!-- Morenizr -->
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/modernizr.min.js"></script>
+    <script type="text/javascript" src="{{SITEURL}}/theme/js/modernizr.min.js"></script>
   </head>
   <body>
-
-
-    <!-- STYLESWITCHER -->
-    <!-- <div id="switcher"> -->
-      <!-- <div class="content-switcher" >         -->
-        <!-- <h4>STYLE OPTIONS</h4> -->
-
-        <!-- <p>Color Skin:</p> -->
-        <!-- <ul style="width:150px;">             -->
-          <!-- <li><a href="#" onclick="setActiveStyleSheet('blue'); return false;" class="color" style="background-color:#50657B"></a></li> --><!-- default-->
-          <!-- <li><a href="#" onclick="setActiveStyleSheet('orange'); return false;" class="color" style="background-color:#F07057"></a></li> -->
-          <!-- <li><a href="#" onclick="setActiveStyleSheet('green'); return false;" class="color" style="background-color:#7E8344"></a></li> -->
-          <!-- <li><a href="#" onclick="setActiveStyleSheet('red'); return false;" class="color" style="background-color:#e93735"></a></li> -->
-          <!-- <li><a href="#" onclick="setActiveStyleSheet('pink'); return false;" class="color" style="background-color:#f73f69"></a></li> -->
-          <!-- <li><a href="#" onclick="setActiveStyleSheet('mauve'); return false;" class="color" style="background-color:#c91ac9"></a></li> -->
-          <!-- <li><a href="#" onclick="setActiveStyleSheet('yellow'); return false;" class="color" style="background-color:#f1c40f"></a></li> -->
-          <!-- <li><a href="#" onclick="setActiveStyleSheet('gray'); return false;" class="color" style="background-color:#333333"></a></li> -->
-        <!-- </ul>         -->
-
-        <!-- <p>Home Page Template:</p> -->
-        <!-- <div class="styled-select">
-          <select onchange="window.document.location.href=this.options[this.selectedIndex].value;">  
-            
-            <optgroup label="+ Personal">
-              <option selected="selected">01. Fullscreen Slider</option>
-              <option value="index-personal-half.html">02. Halfscreen Slider</option>
-              <option value="index-personal-half.html">03. Full Video</option>
-            </optgroup>
-
-            <optgroup label="+ Agency">
-              <option value="index-agency-full.html">01. Fullscreen Slider</option>
-              <option value="index-agency-half.html">02. Halfscreen Slider</option>
-              <option value="index-agency-video.html">03. Full Video</option>
-            </optgroup>
-
-            <optgroup label="+ Application">
-              <option value="index-application-full.html">01. Fullscreen Slider</option>
-              <option value="index-application-half.html">02. Halfscreen Slider</option>
-              <option value="index-application-video.html">03. Full Video</option>
-            </optgroup>
-
-            <optgroup label="Misc">
-              <option value="countdown-image.html">Count Down - Image</option>
-              <option value="countdown-video.html">Count Down - Video</option>
-              <option value="index-video-full.html">404 Not Found</option>
-              <option value="faq.html">Faq Page</option>
-              <option value="text-page.html">Default Text Page</option>
-            </optgroup>
-
-          </select>
-        </div> -->
-
-        <!-- <div class="switcher-links">
-          <a href="elements.html">elements.html</a>
-          <a href="typography.html">typography.html</a>
-          <a href="icons-fontawsome.html">icons-fontawsome.html</a>
-          <a href="icons-linecons.html">icons-linecons.html</a>
-        </div> -->
-
-        <!-- <div id="hideSwitcher">&times;</div> -->
-      <!-- </div> -->
-    <!-- </div> -->
-    <!-- <div id="showSwitcher"><i class="fa fa-tint"></i></div> -->
-    <!-- /STYLESWITCHER -->
-
 
     <!-- HOME -->
     <section id="home" class="full-screen"><!-- full-screen or half-screen (550px height) -->
@@ -160,7 +89,7 @@
     <!-- Main Nav -->
     <header id="header">
 
-      <nav class="navbar navbar-inverse" role="navigation"><!-- add "wihite" class for white nav bar -->
+      <nav class="navbar navbar-inverse" role="navigation">
         <div class="container">
 
           <!-- Mobile Menu Button -->
@@ -170,17 +99,7 @@
           <div class="navbar-header">
             <a class="navbar-brand scrollTo" href="#home">
               <img src="https://dl.dropboxusercontent.com/u/299446/logo-invert.png" alt="" width="50" height="50" /> 
-              <!--
-                Span class:
-                  - dark
-                  - white
-                  - styleColor (if you select "green" style color, the color will be green).
-
-                  You can combine them 
-                  Example:
-                    <span class="white">ISIS</span><span class="styleColor">ONE</span>
-              -->
-              <span class="">{{ SITENAME|e }}</span>
+              <span class="hidden-xs">{{ SITENAME|e }}</span>
             </a>
           </div>
 
@@ -194,9 +113,7 @@
               <li><a href="#home" class="scrollTo">Home</a></li>
               <li><a href="#about" class="scrollTo">About</a></li>
               <li><a href="#work" class="scrollTo">Work</a></li>
-              <!-- <li><a href="#services" class="scrollTo">Services</a></li> -->
               <li><a href="blog.html">Blog</a></li>
-              <!-- <li><a href="#contact" class="scrollTo">Contact</a></li> -->
             </ul>
           </div><!-- /.navbar-collapse -->
 
@@ -205,11 +122,6 @@
 
     </header>
     <!-- /Main Nav -->
-
-
-
-
-
 
     <!-- ABOUT -->
     <section id="about">
@@ -261,22 +173,15 @@
         </article> -->
 
         <!-- curriculum vitae button  -->
-        <!--
-          <article class="curriculum-vitae text-center">
+          <!-- <article class="curriculum-vitae text-center">
             <a href="#" class="plusNav">+</a> 
             <p>curriculum vitae</p>
-          </article>
-        -->
+          </article> -->
+        
 
       </div>
     </section>
     <!-- /ABOUT -->
-
-
-
-
-
-
 
     <!-- WORK -->
     <section id="work" class="alternate arrow-down">
@@ -287,24 +192,26 @@
 
         <div class="divider"><!-- lines divider --></div>
 
+        {% if WORK_DESCRIPTION %}
         <article>
           <p>
-            Bacon ipsum dolor sit amet meatball shank pork chop capicola fatback pork loin sirloin flank. Andouille tongue corned beef rump pork loin shank meatball capicola turducken venison shankle kevin pancetta tri-tip boudin. Bacon ipsum dolor sit amet meatball shank pork chop capicola fatback pork loin sirloin flank.
+            {{WORK_DESCRIPTION}}
           </p>
         </article>
+        {% endif %}
 
 
         <div id="portfolio" class="text-center animate_fade_in">
 
           <!-- PORTFOLIO FILTER -->
-          <div class="text-center">
+          <!-- <div class="text-center">
             <ul class="nav nav-tabs bstrap-tabs isotope-filter" data-sort-id="isotope-list" data-option-key="filter">
-              <li data-option-value="*" class="active"><a href="#">ALL</a></li>
+              <li data-option-value="*" class="active"><a hrefnki="#">ALL</a></li>
               <li data-option-value=".image"><a href="#">IMAGES</a></li>
               <li data-option-value=".brand"><a href="#">BRANDING</a></li>
               <li data-option-value=".video"><a href="#">VIDEO</a></li>
             </ul>
-          </div>
+          </div> -->
           <!-- /PORTFOLIO FILTER -->
 
 
@@ -312,7 +219,23 @@
 
             <ul class="sort-destination isotope" data-sort-id="isotope-list">
 
-              <li class="isotope-item col-sm-6 col-md-4 image"><!-- item -->
+              {% for work_type, work_cover_link, work_title, work_description, work_link in WORK_LIST %}
+                {% if work_type == 'link' %}
+                  <li class="isotope-item col-sm-6 col-md-4 brand"><!-- item -->
+                    <a class="external ajax-project" href="{{work_link}}">
+                      <img src="{{work_cover_link}}" class="img-responsive" alt="img" />
+                      <div class="caption">
+                        <i class="rounded fa fa-link"></i>
+                        <h3>{{work_title}}</h3>
+                        <p>{{work_description}}</p>
+                      </div>
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+
+              <!-- item -->
+              <!-- <li class="isotope-item col-sm-6 col-md-4 image">
                 <a class="popup-image" href="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/content/portfolio/p1.jpg">
                   <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/content/portfolio/p1.jpg" class="img-responsive" alt="img" />
                   <div class="caption">
@@ -321,20 +244,26 @@
                     <p>Image Popup</p>
                   </div>
                 </a>
-              </li>
+              </li> -->
 
-              <li class="isotope-item col-sm-6 col-md-4 video"><!-- item -->
+              <!-- item -->
+              <!-- <li class="isotope-item col-sm-6 col-md-4 video">
                 <a class="popup-video" href="http://www.youtube.com/watch?v=kh29_SERH0Y?rel=0">
                   <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/content/portfolio/p2.jpg" class="img-responsive" alt="img" />
                   <div class="caption">
                     <i class="rounded fa fa-film"></i>
                     <h3>PROJECT TITLE</h3>
-                    <p>Youtube Video</p>
+                    <p>Youtube Videofdafdsf
+                    fadsfaf
+                    fasdfadsfa
+                    fasdfadf
+                    afadsfa</p>
                   </div>
                 </a>
-              </li>
+              </li> -->
 
-              <li class="isotope-item col-sm-6 col-md-4 video brand"><!-- item -->
+              <!-- item -->
+              <!-- <li class="isotope-item col-sm-6 col-md-4 video brand">
                 <a class="popup-video" href="http://vimeo.com/23630702">
                   <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/content/portfolio/p3.jpg" class="img-responsive" alt="img" />
                   <div class="caption">
@@ -343,9 +272,10 @@
                     <p>Vimeo Video</p>
                   </div>
                 </a>
-              </li>
+              </li> -->
 
-              <li class="isotope-item col-sm-6 col-md-4 brand"><!-- item -->
+              <!-- item -->
+              <!-- <li class="isotope-item col-sm-6 col-md-4 brand">
                 <a class="external ajax-project" href="project-external-1.html">
                   <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/content/portfolio/p4.jpg" class="img-responsive" alt="img" />
                   <div class="caption">
@@ -354,9 +284,10 @@
                     <p>External Project 1</p>
                   </div>
                 </a>
-              </li>
+              </li> -->
 
-              <li class="isotope-item col-sm-6 col-md-4 brand"><!-- item -->
+              <!-- item -->
+              <!-- <li class="isotope-item col-sm-6 col-md-4 brand">
                 <a class="external ajax-project" href="project-external-2.html">
                   <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/content/portfolio/p5.jpg" class="img-responsive" alt="img" />
                   <div class="caption">
@@ -365,9 +296,10 @@
                     <p>External Project 2</p>
                   </div>
                 </a>
-              </li>
+              </li> -->
 
-              <li class="isotope-item col-sm-6 col-md-4 brand"><!-- item -->
+              <!-- item -->
+              <!-- <li class="isotope-item col-sm-6 col-md-4 brand">
                 <a class="external ajax-project" href="project-external-3.html">
                   <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/content/portfolio/p6.jpg" class="img-responsive" alt="img" />
                   <div class="caption">
@@ -376,7 +308,7 @@
                     <p>External Project 3</p>
                   </div>
                 </a>
-              </li>
+              </li> -->
 
             </ul>
           </div>
@@ -387,7 +319,6 @@
       </div>
     </section>
     <!-- /WORK -->
-
 
     <!-- BLOG -->
     <section id="quick-blog" class="alternate">
@@ -403,46 +334,66 @@
         <article>
           <div class="row animate_fade_in">
 
-            <!-- article -->
-            <div class="col-md-4 quick-hover">
-              <div class="quick-item">
-                <figure class="media-preview"><!-- image -->
-                  <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/1x1.png" class="img-responsive" data-src="holder.js/360x200/#676767:#555555/auto/" alt="img" />
-                </figure>
+            {% for article in articles_page.object_list[:3] %}
+              <div class="col-md-4 quick-hover">
+                <div class="quick-item">
+                  <figure class="media-preview">
+                    <img src="{{SITEURL}}/theme/img/1x1.png" class="img-responsive" data-src="holder.js/360x200/#676767:#555555/auto/" alt="img" />
+                  </figure>
+                  <h4>{{article.title}}</h4>
+                  <p>{{article.summary}}</p>
+                  {%if article.link %}
+                    <a href="{{ article.link }}" class="btn btn-xs"><i class="fa fa-external-link"></i> READ MORE</a>
+                  {% else %}
+                    <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %} 
+            
 
-                <h4>Simple but powerful</h4>
+            <!-- article -->
+            <!-- <div class="col-md-4 quick-hover"> -->
+              <!-- <div class="quick-item"> -->
+                <!-- <figure class="media-preview"> -->
+                  <!-- image -->
+                  <!-- <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/1x1.png" class="img-responsive" data-src="holder.js/360x200/#676767:#555555/auto/" alt="img" /> -->
+                <!-- </figure> -->
+
+                <!-- <h4>Simple but powerful</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.</p>
                 <a href="blog-post.html" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
               </div>
-            </div>
+            </div> -->
 
 
             <!-- article -->
-            <div class="col-md-4 quick-hover">
+            <!-- <div class="col-md-4 quick-hover">
               <div class="quick-item">
-                <div class="media-preview"><!-- video -->
-                  <iframe src="https://player.vimeo.com/video/24569304?title=0&amp;byline=0&amp;portrait=0" width="360" height="200"></iframe>
+                <div class="media-preview"> -->
+                <!-- video -->
+                 <!--  <iframe src="https://player.vimeo.com/video/24569304?title=0&amp;byline=0&amp;portrait=0" width="360" height="200"></iframe>
                 </div>
 
                 <h4>Easy to customize</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.</p>
                 <a href="blog-post.html" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
               </div>
-            </div>
+            </div> -->
 
 
             <!-- article -->
-            <div class="col-md-4 quick-hover">
+            <!-- <div class="col-md-4 quick-hover">
               <div class="quick-item">
-                <div class="media-preview"><!-- audio -->
-                  <iframe class="fullwidth" height="200" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/97336936&amp;color=7E8344&amp;auto_play=false&amp;show_artwork=false"></iframe>
+                <div class="media-preview"> --><!-- audio -->
+                  <!-- <iframe class="fullwidth" height="200" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/97336936&amp;color=7E8344&amp;auto_play=false&amp;show_artwork=false"></iframe>
                 </div>
 
                 <h4>Easy to integrate</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.</p>
                 <a href="blog-post.html" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </article>
@@ -466,8 +417,6 @@
       </div>
     </section> -->
     <!-- /QUOTE -->
-
-
 
 
     <!-- FOOTER -->
