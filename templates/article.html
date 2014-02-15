@@ -18,8 +18,7 @@
           {% endif %}
         {% endfor %}
       {% endif %}
-      
-      <a href="{{article.url}}#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> ?? Comments</a>
+      <a href="{{ SITEURL }}/{{article.url}}#disqus_thread" class="scrollTo label label-default light" data-disqus-identifier="{{article.url}}"><i class="fa fa-comment-o"></i> ?? Comments</a>
       <span class="label label-default light">{{ article.locale_date }}</span> 
     </small>
   </header>
