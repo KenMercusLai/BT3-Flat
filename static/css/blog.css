@@ -55,7 +55,7 @@ div.blog-header p {
 	margin:0;
 }
 #comments {
-	margin-top:100px;
+	margin-top: -40px;
 }
 #blog .comment {
 	margin:40px 0;
