@@ -1,60 +1,9 @@
-
 <!doctype html>
 <html lang="en-US">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <title>{{ SITENAME }} - {{ SITESUBTITLE }}</title>
-    <meta name="description" content="" />
-    <meta name="Author" content="Ken M. Lai(networktsukkomime.me)" />
-
-    <!--[if lt IE 9]>
-      <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/html5.js"></script>
-      <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/respond.min.js"></script>
-      <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/lt-ie9/excanvas.compiled.js"></script>
-    <![endif]--> 
-
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Dosis:300,400" rel="stylesheet" type="text/css" />
-
-
-    <!-- CORE CSS FRAMEWORK -->
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link href="{{SITEURL}}/theme/css/linecons.css" rel="stylesheet" type="text/css" />
-
-    <!-- PLUGINS -->
-    <link href="{{SITEURL}}/theme/css/superslides.css" rel="stylesheet" type="text/css" />
-    <link href="{{SITEURL}}/theme/css/owl.carousel.css" rel="stylesheet" type="text/css" />
-    <link href="{{SITEURL}}/theme/css/magnific-popup.css" rel="stylesheet" type="text/css" />
-
-    <!-- CSS TEMPLATE -->
-    <link href="{{SITEURL}}/theme/css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="{{SITEURL}}/theme/css/framework.css" rel="stylesheet" type="text/css" />
-    <link href="{{SITEURL}}/theme/css/typography.css" rel="stylesheet" type="text/css" />
-    <link href="{{SITEURL}}/theme/css/layout.css" rel="stylesheet" type="text/css" />
-
-    <link href="{{SITEURL}}/theme/css/blog.css" rel="stylesheet" type="text/css" />
-
-     <link href="{{SITEURL}}/theme/css/green.css" rel="stylesheet" type="text/css" />
-
-    <!-- ICONS -->
-    {% if FAVICON %}
-      <link rel="shortcut icon" href="{{FAVICON}}" type="image/x-icon" />
-    {% endif %}
-    {% if ICON %}
-      <link rel="icon" href="{{ICON}}" type="image/x-icon" />
-    {% endif %}
-    {% if SHORTCUT_ICON %}
-      <link rel="shortcut icon" href="{{SHORTCUT_ICON}}" type="image/x-icon" />
-    {% endif %}
-
-    <!-- mobile settings -->
-    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
-
-    <!-- Morenizr -->
-    <script type="text/javascript" src="{{SITEURL}}/theme/js/modernizr.min.js"></script>
+    {% include "_includes/header.html" %}
   </head>
+
   <body>
 
     <!-- HOME -->
@@ -73,9 +22,9 @@
               </div>
               <hr /><hr />
             </div>
-
             <span class="overlay"></span>
-            <div style="background-image: url('http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/preview/slider/background.jpg');" class="fullscreen-img"></div>
+            <div style="background-image: url('http://images.nationalgeographic.com/wpf/media-live/photos/000/763/cache/egret-fog-reflection_76312_990x742.jpg');" class="fullscreen-img"></div>
+            
           </li>
         </ul>
 
@@ -337,63 +286,27 @@
             {% for article in articles_page.object_list[:3] %}
               <div class="col-md-4 quick-hover">
                 <div class="quick-item">
-                  <figure class="media-preview">
-                    <img src="{{SITEURL}}/theme/img/1x1.png" class="img-responsive" data-src="holder.js/360x200/#676767:#555555/auto/" alt="img" />
-                  </figure>
-                  <h4>{{article.title}}</h4>
-                  <p>{{article.summary}}</p>
-                  {%if article.link %}
-                    <a href="{{ article.link }}" class="btn btn-xs"><i class="fa fa-external-link"></i> READ MORE</a>
-                  {% else %}
-                    <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
+                  {% if article.featured %}
+                    {% if article.type=='image' %}
+                      <figure class="media-preview">
+                        <img src="{{article.featured}}" class="img-responsive" data-src="holder.js/360x200/#676767:#555555/auto/" alt="img" />
+                      </figure>
+                    {%elif article.type=='video'%}
+                      <iframe class="fitvids" src="{{article.featured}}" width="800" height="450"></iframe>
+                    {%elif article.type=='audio'%}
+                      <iframe class="fullwidth" height="166" src="{{article.featured}}"></iframe> 
+                    {%endif%}
                   {% endif %}
+                  {% if article.link %}
+                    <h4><a href="{{ article.link }}">{{article.title}} <i class="fa fa-external-link" target="_blank"></i></a></h4>
+                  {%else%}
+                    <h4><a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a></h4>
+                  {%endif%}
+                  <p>{{article.summary}}</p>
+                  <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
                 </div>
               </div>
             {% endfor %} 
-            
-
-            <!-- article -->
-            <!-- <div class="col-md-4 quick-hover"> -->
-              <!-- <div class="quick-item"> -->
-                <!-- <figure class="media-preview"> -->
-                  <!-- image -->
-                  <!-- <img src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/images/1x1.png" class="img-responsive" data-src="holder.js/360x200/#676767:#555555/auto/" alt="img" /> -->
-                <!-- </figure> -->
-
-                <!-- <h4>Simple but powerful</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.</p>
-                <a href="blog-post.html" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
-              </div>
-            </div> -->
-
-
-            <!-- article -->
-            <!-- <div class="col-md-4 quick-hover">
-              <div class="quick-item">
-                <div class="media-preview"> -->
-                <!-- video -->
-                 <!--  <iframe src="https://player.vimeo.com/video/24569304?title=0&amp;byline=0&amp;portrait=0" width="360" height="200"></iframe>
-                </div>
-
-                <h4>Easy to customize</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.</p>
-                <a href="blog-post.html" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
-              </div>
-            </div> -->
-
-
-            <!-- article -->
-            <!-- <div class="col-md-4 quick-hover">
-              <div class="quick-item">
-                <div class="media-preview"> --><!-- audio -->
-                  <!-- <iframe class="fullwidth" height="200" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/97336936&amp;color=7E8344&amp;auto_play=false&amp;show_artwork=false"></iframe>
-                </div>
-
-                <h4>Easy to integrate</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas metus nulla, commodo a sodales sed, dignissim pretium nunc. Nam et lacus neque.</p>
-                <a href="blog-post.html" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
-              </div>
-            </div> -->
 
           </div>
         </article>
@@ -419,63 +332,7 @@
     <!-- /QUOTE -->
 
 
-    <!-- FOOTER -->
-    <footer>
-
-      <!-- SCROOL TO TOP -->
-      <a href="#toTop" class="fa fa-arrow-up toTop"></a>
-
-      <div class="container">
-
-        <div class="row">
-
-          <div class="col-md-6 copyright">
-            {{ SITENAME|e }}<br />
-            2014 &copy; All Rights Reserved.
-          </div>
-
-          <div class="col-md-6 text-right">
-            {% for group_title, group_link in SOCIAL %}
-              <a href="{{group_link}}" class="social fa fa-{{group_title|lower}}"></a>
-            {% endfor %}
-          </div>
-
-        </div>
-
-      </div>
-    </footer>
-    <!-- /FOOTER -->
-
-
-
-    <!-- CORE FILES -->
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/jquery/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/jquery.isotope.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/masonry.js"></script>
-
-    <!-- PLUGINS -->
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/jquery-fitvids/jquery.fitvids.min.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/jquery-appear/jquery.appear.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/superslides/dist/jquery.superslides.min.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/jquery-owl-carousel/owl.carousel.min.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/jquery-countTo/jquery.countTo.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/jquery.mb.YTPlayer.js"></script><!-- Youtube video background -->
-    <script type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/holder.js"></script><!-- delete on production -->
-
-    <!-- js scripts -->
-    <script async type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/js/scripts.js"></script>
-
-    <script async type="text/javascript" src="http://stepofweb.gweb.io/.templates/IsisOne/HTML/assets/plugins/styleswitcher/styleswitcher.js"></script>
-
-
-    <!-- Change UA-XXXXX-X with your site ID -->
-    <!--<script>
-      window._gaq = [['_setAccount','UA-XXXXX-X'],['_trackPageview'],['_trackPageLoadTime']];
-      Modernizr.load({load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'});
-    </script>  -->
+    {% include "_includes/footer.html" %}
 
   </body>
 </html>

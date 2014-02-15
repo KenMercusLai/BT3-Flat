@@ -1,95 +1,32 @@
-{% extends "base.html" %}
-
-{% set has_right = True %}
-
-{% block title %}
-  {{ article.title|striptags }}
-{% endblock %}
-
-
-{% block top_center %}
-  {% if article.link %}
-  <h1>
-    <a href="{{ article.link }}" rel="bookmark" title="External Link to {{ article.title|striptags|e }}">{{ article.title }} <i class="fa fa-external-link"></i></a>
-  </h1>
-  {% else %}
-  <h1>
-    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags|e }}">{{ article.title }}</a>
-  </h1>
-  {% endif %}
-{% endblock %}
-
-
-{% block right_sidebar %}
-  <div class="well">
-
-    <p><abbr title="{{ article.date.isoformat() }}"><i class="fa fa-calendar"></i> {{ article.locale_date }}</abbr></p>
-
-    <!-- {% if AUTHOR_SAVE_AS and article.author %}
-      <p><address class="icon-user"> By <a href="{{ SITEURL }}/{{ article.author.url }}" rel="author">{{ article.author }}</a></address></p>
-    {% endif %} -->
-    <link rel="author" href="https://plus.google.com/u/0/+kenlaimercus?rel=author">
-    {% if AUTHOR_SAVE_AS and article.author %}
-      <p><address><i class="fa fa-user"></i> By <a href="{{ SITEURL }}/{{ article.author.url }}" rel="author">{{ article.author }}</a></address></p>
+{% import "macros.html" as m %}
+{% extends "blog_base.html" %}
+<!-- BLOG -->
+{%block content_area %}
+  <!-- article title -->
+  <header>
+    {% if article.link %}
+      <a href="{{ article.link }}" rel="bookmark" title="External Link to {{ article.title|striptags|e }}"><h1>{{ article.title }} <i class="fa fa-external-link"></i></h1></a>
+    {% else %}
+      <h1>{{ article.title }}</h1>
     {% endif %}
+    <small class="fsize13">
+      {% if article.category %}
+        {% for category, articles in categories %}
+          {% if category.url == article.category.url %}
+            {% set article_counter = articles|length() %}
+            <a href="{{ SITEURL }}/{{ article.category.url }}" rel="tag tooltip" class="label label-default light" data-placement="right" data-original-title="{{ article_counter }} article{{ 's' if article_counter > 1 else '' }} in this category"><i class="fa fa-dot-circle-o"></i> {{ article.category }}</a>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      
+      <a href="{{article.url}}#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> ?? Comments</a>
+      <span class="label label-default light">{{ article.locale_date }}</span> 
+    </small>
+  </header>
 
-    {% if PDF_PROCESSOR %}
-      <p><a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf" rel="alternate" class="icon-file"> Download the .pdf</a></p>
-    {% endif %}
-
-    <hr/>
-
-    {% if not article.category or article.tags %}
-      <p>
-        {% if article.category %}
-          {% for category, articles in categories %}
-            {% if category.url == article.category.url %}
-              {% set article_counter = articles|length() %}
-              <a href="{{ SITEURL }}/{{ article.category.url }}" rel="tag tooltip" class="label label-info" data-placement="right" data-original-title="{{ article_counter }} article{{ 's' if article_counter > 1 else '' }} in this category">{{ article.category }}</a>
-            {% endif %}
-          {% endfor %}
-        {% endif %}
-        {% if article.tags %}
-          {% set article_tags = [] %}
-          {% for tag, articles in tags %}
-            {% for t in article.tags %}
-              {% if tag.url == t.url %}
-                {% if article_tags.append({'name': tag.name, 'url': tag.url, 'articles': articles|length()}) %}{% endif %}
-              {% endif %}
-            {% endfor %}
-          {% endfor %}
-          {% for tag in article_tags|sort(reverse = True, attribute = 'articles') %}
-            {{ m.render_tag(tag) }}
-          {% endfor %}
-        {% endif %}
-      </p>
-      <hr/>
-    {% endif %}
-
-    {% if ARTICLE_EDIT_LINK %}
-      <p>Found a typo ? Want to fix it ?</p>
-      <a class="btn btn-info btn-block" href="{{ ARTICLE_EDIT_LINK % {'slug': article.slug} }}"><i class="icon-random icon-white"></i> Edit article on GitHub</a>
-      <hr/>
-    {% endif %}
-
-    {% if article.prev_article or article.next_article %}
-      <ul class="pager">
-        <li class="previous {% if not article.prev_article %} disabled {% endif %}"><a {% if article.prev_article %} href="{{ SITEURL }}/{{ article.prev_article.url }}" title="{{ article.prev_article.title|striptags|e }}" {% endif %} rel="prev">← Older</a></li>
-        <li class="next {% if not article.next_article %} disabled {% endif %}"><a {% if article.next_article %} href="{{ SITEURL }}/{{ article.next_article.url }}" title="{{ article.next_article.title|striptags|e }}" {% endif %} rel="next">Newer →</a></li>
-      </ul>
-    {% endif %}
-
-  </div>
-{% endblock %}
-
-
-{% block content %}
-  {% import 'translations.html' as translations with context %}
-  {{ translations.translations_for(article) }}
-
-  <div>
+  <article class='content'>
     {{ article.content }}
-  </div>
+  </article>
 
   {% if article.related_posts %}
     <h3>Related content</h3>
@@ -100,13 +37,32 @@
       {% endfor %}
       </ul>
   {% endif %}
+  <div class="divider"><!-- lines divider --></div>
+  <!-- SOCIAL -->
+  {% include "_includes/share_post.html" %}
+  
 
-  {% if SHARE_POST %}
-    {% include '_includes/share_post.html' %}
-  {% endif %}
+  <!-- TAGS -->
+  <p class="fsize16"> Tags:
+    {% if article.tags %}
+      {% set article_tags = [] %}
+      {% for tag, articles in tags %}
+        {% for t in article.tags %}
+          {% if tag.url == t.url %}
+            {% if article_tags.append({'name': tag.name, 'url': tag.url, 'articles': articles|length()}) %}{% endif %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      {% for tag in article_tags|sort(reverse = True, attribute = 'articles') %}
+        {{ m.render_tag(tag) }}
+      {% endfor %}
+    {% endif %}
+  </p>
+  
+  <hr /><!-- divider -->
 
   {% if SITEURL and DISQUS_SITENAME %}
-    <div class="comments">
+    <div id="comments" class="comments">
       <div id="disqus_thread"></div>
       <script type="text/javascript">
         var disqus_shortname = '{{ DISQUS_SITENAME }}';
@@ -122,5 +78,11 @@
       <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus</a>.</noscript>
     </div>
   {% endif %}
+{%endblock%}
 
-{% endblock %}
+
+
+
+
+
+

@@ -1,23 +1,17 @@
-{% extends "base.html" %}
+{% extends "blog_base.html" %}
 
-
-{% block title %}
-  {{ tag }}
+{% block content_area %}
+  <div class="item">
+      <div class="item-title">
+        <h2>{{tag}}</h2>
+      </div>
+      {% for article in articles %}
+        {% if article.link %}
+          <p><a href="{{ article.link }}"><span class="label label-default light">{{article.locale_date}}</span> {{article.title}} <i class="fa fa-external-link" target="_blank"></i></a></p>
+        {%else%}
+          <p><a href="{{ SITEURL }}/{{ article.url }}"><span class="label label-default light">{{article.locale_date}}</span> {{article.title}}</a></p>
+        {%endif%}
+      {% endfor %}
+  </div>
 {% endblock %}
-
-
-{% block top_center %}
-  <h1>
-    <a  href="{{ SITEURL }}/{{ tag.url }}" rel="bookmark" title="Permalink to {{ tag|e }} articles">{{ tag }} articles</a>
-  </h1>
-{% endblock %}
-
-
-{% block content %}
-  <dl class="dl-horizontal">
-    {% for article in articles %}
-      <dt><abbr class="published" title="{{ article.date.isoformat() }}">{{ article.locale_date }}</abbr></dt>
-      <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-    {% endfor %}
-  </dl>
-{% endblock %}
+    
