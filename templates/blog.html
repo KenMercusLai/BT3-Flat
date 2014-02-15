@@ -1,0 +1,46 @@
+{% extends "blog_base.html" %}
+<!-- BLOG -->
+{%block content_area %}
+  <!-- blog item -->
+  
+    {% for article in articles[:DEFAULT_PAGINATION] %}
+      <div class="item">
+        <div class="item-title">
+          <h2><a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a>
+          </h2>
+          <a href="#" class="label label-default light"><i class="fa fa-dot-circle-o"></i> {{article.category}}</a> 
+          <a href="{{ SITEURL }}/{{ article.url }}#comments" class="scrollTo label label-default light"><i class="fa fa-comment-o"></i> ? Comments</a>
+          <span class="label label-default light">{{article.date}}</span>
+        </div>
+        <!-- image -->
+        {% if article.featured %}
+          {% if article.type=='image' %}
+            <figure>
+              <img src="{{article.feature}}" class="img-responsive" data-src="holder.js/820x500/#676767:#555555/auto/" alt="img" />
+            </figure>
+          {% elif aritcle.type=='video' %}
+            <iframe class="fitvids" src="{{article.feature}}" width="800" height="450"></iframe>
+          {% elif article.type=='audio'%}
+            <iframe class="fullwidth" height="166" src="{{article.feature}}"></iframe> 
+          {% endif %}
+        {% endif %}
+
+        <!-- blog short preview -->
+        <p>
+          {% if article.summary %}
+            {{ article.summary }}
+          {% else %}
+            {{ article.content[:196] }} + ' ...'
+          {% endif %}
+        </p>
+
+        <!-- read more button -->
+        <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
+      </div>
+    {% endfor %} 
+  <!-- /blog item -->
+
+  <!-- PAGINATION -->
+  {#% include 'pagination.html' %#}
+  <!-- /PAGINATION -->
+{%endblock%}

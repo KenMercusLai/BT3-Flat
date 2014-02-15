@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+{% import 'macros.html' as m %}
+<html lang="{{ DEFAULT_LANG }}">
+  <head>
+    <meta charset="utf-8"/>
+
+    <title>{% block title %}Home{% endblock title %} | {{ SITENAME }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="{{ author|e }}"/>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.magnific-popup/0.8.9/magnific-popup.css"/>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/jquery.mglass.css"/>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygment-solarized-dark.css"/>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css"/>
+
+    <!-- Fonts -->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href='//fonts.googleapis.com/css?family=Istok+Web' rel='stylesheet' type='text/css'/>
+    <link href='//fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'/>
+    {% if TYPOGRIFY %}
+      <link href='//fonts.googleapis.com/css?family=Expletus+Sans' rel='stylesheet' type='text/css'>
+    {% endif %}
+
+    {% block extra_css %}{% endblock %}
+
+    <link rel="icon" href="{{ SITEURL }}/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ SITEURL }}/favicon.ico" type="image/x-icon">
+
+    <!-- Feeds -->
+    {% if FEED_ALL_ATOM %}
+      <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|e }} Full Atom Feed"/>
+    {% endif %}
+    {% if FEED_ALL_RSS %}
+      <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|e }} Full RSS Feed"/>
+    {% endif %}
+    {% if FEED_ATOM %}
+      <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|e }} Atom Feed"/>
+    {% endif %}
+    {% if FEED_RSS %}
+      <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|e }} RSS Feed"/>
+    {% endif %}
+    {% if CATEGORY_FEED_ATOM and category is defined %}
+      <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|e }} Categories Atom Feed"/>
+    {% endif %}
+    {% if CATEGORY_FEED_RSS and category is defined %}
+      <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|e }} Categories RSS Feed"/>
+    {% endif %}
+    {% if TAG_FEED_ATOM and tag is defined %}
+      <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME|e }} Tags Atom Feed"/>
+    {% endif %}
+    {% if TAG_FEED_RSS and tag is defined %}
+      <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME|e }} Tags RSS Feed"/>
+    {% endif %}
+
+    {% block head %}
+    {% endblock %}
+
+  </head>
+
+  <body>
+    <div class="container">
+
+      <header>
+        <div class="page-header">
+          {% if SITE_THUMBNAIL %}
+            <a href="{{ SITEURL }}" class="avatar-container">
+              <div class="avatar {% if SITE_THUMBNAIL_TEXT %} animate {% endif %}">
+                <div class="side"><img src="{{ SITE_THUMBNAIL }}" width='74' height='74'/></div>
+                {% if SITE_THUMBNAIL_TEXT %}
+                  <div class="side back"><p class="text-center">{{ SITE_THUMBNAIL_TEXT }}</p></div>
+                {% endif %}
+              </div>
+            </a>
+          {% endif %}
+          <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a> <small>{{ SITESUBTITLE }}</small></h1>
+        </div>
+
+        <nav class="navbar-nav navbar-default" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand hidden" href="{{ SITEURL }}" title="{{ SITESUBTITLE|e }}">{{ SITENAME }}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                {% for title, link in MENUITEMS %}
+                  {% set active_page = page is defined and link == "/%s"|format(page.url) -%}
+                  <li {% if active_page %} class="active" {% endif %}><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                {% if DISPLAY_PAGES_ON_MENU %}
+                  {% for p in PAGES %}
+                    <li {% if p == page %} class="active" {% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+              {% if SWIFTYPE %}
+                <form class="navbar-form navbar-right">
+                  <input type="text" id="st-search-input" class="search-query form-control col-lg-2 col-md-2 col-sm-2" placeholder="Search"/>
+                </form>
+                <script type="text/javascript">
+                var Swiftype = window.Swiftype || {};
+                  (function() {
+                    Swiftype.key = '{{ SWIFTYPE }}';
+
+                    /** DO NOT EDIT BELOW THIS LINE **/
+                    var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+                    script.src = "//s.swiftypecdn.com/embed.js";
+                    var entry = document.getElementsByTagName('script')[0];
+                    entry.parentNode.insertBefore(script, entry);
+                  }());
+                </script>
+              {% elif GOOGLE_SEARCH %}
+                <form class="navbar-form navbar-right" action="http://www.google.com" target="_blank">
+                  <input type="text" name="q" class="search-query form-control col-lg-2 col-md-2 col-sm-2" placeholder="Search"/>
+                  <input type="hidden" name="cx" value="{{ GOOGLE_SEARCH }}" />
+                  <input type="hidden" name="ie" value="UTF-8" />
+                </form>
+              {% endif %}
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <section>
+        {% set has_left_content = has_left or LEFT_SIDEBAR is defined %}
+        {% set has_right_content = has_right or RIGHT_SIDEBAR is defined %}
+
+        <div class="row">
+          <div class="{% if (has_left_content and has_right_content) or LAYOUT == 'full-width' %} col-lg-6 col-md-6 col-sm-6 {% elif has_left_content or has_right_content%} col-lg-9 col-md-9 col-sm-9 {% else %} col-lg-12 col-md-12 col-sm-12 {% endif %} {% if has_left_content %} offset3 {% endif %}">
+            {% block top_center %}
+            {% endblock %}
+          </div>
+        </div>
+
+        <div class="row">
+
+          {% if LAYOUT != 'full-width' and has_left_content %}
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              {% block left_sidebar %}
+              {% endblock %}
+              {{ LEFT_SIDEBAR }}
+            </div>
+          {% endif %}
+
+          <div class="{% if LAYOUT == 'full-width' %} offset1 {% elif has_left_content and has_right_content %} col-lg-6 col-md-6 col-sm-6 {% elif has_left_content or has_right_content %} col-lg-9 col-md-9 col-sm-9 {% else %} col-lg-12 col-md-12 col-sm-12 {% endif %}" id="content" role="main">
+            {% block content %}
+            {% endblock %}
+          </div>
+
+          {% if LAYOUT != 'full-width' and has_right_content %}
+            <div class="col-lg-3 col-md-3 col-sm-3">
+              {% block right_sidebar %}
+              {% endblock %}
+              {{ RIGHT_SIDEBAR }}
+            </div>
+          {% endif %}
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TODO: make footer sticky -->
+    <footer>
+      <div class="container">
+        <div class="row">
+
+          {% set SOCIAL_TITLE = SOCIAL_TITLE or 'Social' %}
+          {% set LINKS_TITLE  = LINKS_TITLE  or 'Links'  %}
+          {% for group_title, group_links in ((SOCIAL_TITLE, SOCIAL), (LINKS_TITLE, LINKS)) %}
+            <div class="col-lg-2 col-md-2 col-sm-2">
+              {% if group_links %}
+                <h5>{{ group_title }}</h5>
+                <ul class="list-unstyled">
+                {% for title, link in group_links %}
+                  <li>{{ m.render_link_icon(link, title) }}</li>
+                {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+          <div class="col-lg-2 col-md-2 col-sm-2">
+            <h5>Browse content by</h5>
+            <ul class="list-unstyled">
+              {% if CATEGORIES_SAVE_AS %}
+                <li><a href="{{ SITEURL }}/{{ CATEGORIES_SAVE_AS }}" class="icon-tags"> Categories</a></li>
+              {% endif %}
+              {% if ARCHIVES_SAVE_AS %}
+                <li><a href="{{ SITEURL }}/{{ ARCHIVES_SAVE_AS }}" class="icon-calendar"> Dates</a></li>
+              {% endif %}
+              {% if TAGS_SAVE_AS %}
+                <li><a href="{{ SITEURL }}/{{ TAGS_SAVE_AS }}" class="icon-tag"> Tags</a></li>
+              {% endif %}
+
+              {% if TAG_FEED_ATOM and tag is defined %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}"><i class="fa fa-rss"></i> Feed</a></li>
+              {% elif TAG_FEED_RSS and tag is defined %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}"><i class="fa fa-rss"></i> Feed</a></li>
+              {% elif CATEGORY_FEED_ATOM and category is defined %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}"><i class="fa fa-rss"></i> Feed</a></li>
+              {% elif CATEGORY_FEED_RSS and category is defined %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}"><i class="fa fa-rss"></i> Feed</a></li>
+              {% elif FEED_ALL_ATOM %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}"><i class="fa fa-rss"></i> Feed</a></li>
+              {% elif FEED_ALL_RSS %}
+                <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}"><i class="fa fa-rss"></i> Feed</a></li>
+              {% endif %}
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-2 text-muted">
+            <h5>Copyright notice</h5>
+            {% set date_start = dates[-1].date.year if dates else None %}
+            {% set date_end   = dates[0].date.year if dates else None %}
+            <p>© Copyright {{ date_start if date_start }}{{ '-%s' % date_end if date_end and date_end != date_start }} {{ AUTHOR }}.</p>
+            {% if COPYRIGHT %}
+              <p>{{ COPYRIGHT }}</p>
+            {% endif %}
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-2 text-muted">
+            <h5>Disclaimer</h5>
+            {% if DISCLAIMER %}
+              <p>{{ DISCLAIMER }}</p>
+            {% else %}
+              <p>All opinions expressed in this site are my own personal opinions and are not endorsed by, nor do they represent the opinions of my previous, current and future employers or any of its affiliates, partners or customers.</p>
+            {% endif %}
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-2">
+            <h5 class="pull-right"><a href="#"><i class="fa fa-arrow-up"></i> Back to top</a></h5>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row col-lg-12 col-md-12 col-sm-12 text-muted text-center">
+          Site generated by <a href="http://getpelican.com"> Pelican</a>.<br/>
+          <a href="https://github.com/kdeldycke/plumage"> Plumage</a> theme by <a href="http://kevin.deldycke.com">Kevin Deldycke</a>.
+        </div>
+      </div>
+
+    </footer>
+
+    {% if GOOGLE_ANALYTICS %}
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '{{ GOOGLE_ANALYTICS }}']);
+        {% if GOOGLE_ANALYTICS_DOMAIN %}
+          _gaq.push(['_setDomainName', '{{ GOOGLE_ANALYTICS_DOMAIN }}']);
+        {% endif %}
+        _gaq.push(['_setAllowLinker', true]);
+        _gaq.push(['_trackPageview']);
+        setTimeout(function() {
+          window.onscroll = function() {
+            window.onscroll = null; // Only track the event once
+            _gaq.push(['_trackEvent', 'scroll', 'read']);
+          }
+        }, 5000);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+    {% endif %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/jquery.magnific-popup/0.9.9/jquery.magnific-popup.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fitvids/1.0.1/jquery.fitvids.min.js"></script>
+    <script src="{{ SITEURL }}/theme/js/jquery.mglass.js"></script>
+    <script src="{{ SITEURL }}/theme/js/application.js"></script>
+    {% block extra_js %}{% endblock %}
+
+  </body>
+</html>

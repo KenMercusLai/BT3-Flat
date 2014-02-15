@@ -1,0 +1,38 @@
+.styleColor,
+ul.bstrap-tabs li.active a,
+ul.bstrap-tabs li.active a i,
+#portfolio div.item a:hover i.fa,
+section.util-row h1,
+.pagination>li>a, .pagination>li>span, .pagination>li>a:hover,
+a {
+	color:#7E8344;
+}
+a:hover {
+	color:#999e52;
+}
+
+ul.pagination li.active a,
+ul.pagination li.active a:hover,
+.styleBackground {
+	background-color:#7E8344;
+}
+
+.btn.btn-primary {
+	background:#7E8344;
+	border:rgba(255,255,255,0.5) 2px solid;
+}
+
+.plusNav {
+	background:#7E8344;
+}
+.plusNav:hover {
+	color:#fff;
+	box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #7E8344, 0 0 0 10px rgba(255,255,255,0.5);
+}
+
+ul.bstrap-tabs>li.active>a:hover, 
+ul.bstrap-tabs>li.active>a:focus,
+ul.bstrap-tabs li.active a {
+	color:#7E8344;
+	border:#7E8344 1px solid;
+}
