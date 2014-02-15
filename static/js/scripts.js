@@ -713,60 +713,6 @@ jQuery("#newsletter-subscribe").bind("click", function(e) {
 	});
 
 
-	
-	// External Portfolio
-	jQuery("a.ajax-project").bind("click", function(e) {
-		e.preventDefault();
-
-		var href = jQuery(this).attr('href');
-
-		$.ajax({
-			url: 	href,
-			data: 	{ajax:"true"},
-			type: 	"get",
-			error: 	function(XMLHttpRequest, textStatus, errorThrown) {
-
-				alert('Server Internal Error'); // usualy on headers 404
-
-			},
-
-			success: function(data) {
-				jQuery('body').append('<div id="ajax_modal">' + data + '</div>');
-				jQuery("#ajax_modal").fadeIn(300, function() {
-					jQuery("body").fitVids();			// fitvids
-					owlCarouselInit(".owl-carousel");	// carousel
-					_popups();
-
-					// close modal
-					jQuery("button.close-modal").bind("click", function(e) {
-						jQuery("#ajax_modal").fadeOut(300, function() {
-							jQuery('html,body').css({"overflow-y":"auto"});
-							jQuery(this).remove();
-						});
-					});
-
-					// Esc key
-					jQuery(document).keydown(function(e){
-						var code = e.keyCode ? e.keyCode : e.which;
-						if(code === 27) {
-							jQuery("#ajax_modal").fadeOut(300, function() {
-								jQuery('html,body').css({"overflow-y":"auto"});
-								jQuery(this).remove();
-							});
-						}
-					});
-
-				});
-
-				// hide page scroll
-				jQuery('html,body').css({"overflow-y":"hidden"});
-			}
-		});
-		
-	});
-
-
-
 /**	14. STICKY TOP NAV
 *************************************************** **/
 	// -----------------------------------------------------------------------------------
