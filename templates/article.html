@@ -25,7 +25,15 @@
 
   <article class='content'>
     {% if article.featured %}
-      {{article.featured}}
+      {% if article.type|lower =='image' %}
+        <figure>
+          <img src="{{article.featured}}" class="img-responsive" data-src="holder.js/820x500/#676767:#555555/auto/" alt="img" />
+        </figure>
+      {% elif article.type|lower =='video' %}
+        <iframe class="fitvids" src="{{article.featured}}" width="800" height="450"></iframe>
+      {% elif article.type|lower =='audio'%}
+        <iframe class="fullwidth" height="166" src="{{article.featured}}"></iframe> 
+      {% endif %}
     {% endif %}
     {{ article.content }}
   </article>
