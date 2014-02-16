@@ -296,17 +296,17 @@
             {% for article in articles_page.object_list[:3] %}
               <div class="col-md-4 quick-hover">
                 <div class="quick-item">
-                  {% if article.featured %}
-                    {% if article.type=='image' %}
-                      <figure class="media-preview">
-                        <img src="{{article.featured}}" class="img-responsive" data-src="holder.js/360x200/#676767:#555555/auto/" alt="img" />
-                      </figure>
-                    {%elif article.type=='video'%}
-                      <iframe class="fitvids" src="{{article.featured}}" width="800" height="450"></iframe>
-                    {%elif article.type=='audio'%}
-                      <iframe class="fullwidth" height="166" src="{{article.featured}}"></iframe> 
-                    {%endif%}
+                {% if article.featured %}
+                  <figure class="media-preview">
+                  {% if article.type|lower=='image' %}
+                    <img src="{{article.featured}}" class="img-responsive" data-src="holder.js/360x200/#676767:#555555/auto/" alt="img" />
+                  {%elif article.type|lower=='video'%}
+                    <iframe class="fitvids" src="{{article.featured}}" width="800" height="450"></iframe>
+                  {%elif article.type|lower=='audio'%}
+                    <iframe class="fullwidth" height="166" src="{{article.featured}}"></iframe> 
                   {% endif %}
+                  </figure>
+                {% endif %}
                   {% if article.link %}
                     <h4><a href="{{ article.link }}">{{article.title}} <i class="fa fa-external-link" target="_blank"></i></a></h4>
                   {%else%}

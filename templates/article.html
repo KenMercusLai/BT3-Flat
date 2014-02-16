@@ -24,6 +24,9 @@
   </header>
 
   <article class='content'>
+    {% if article.featured %}
+      {{article.featured}}
+    {% endif %}
     {{ article.content }}
   </article>
 
