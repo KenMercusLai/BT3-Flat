@@ -18,35 +18,31 @@
 
               <!-- SIDEBAR -->
               <div class="right col-md-3">
-
-                  <!-- blog search -->
-                  <div class="widget">
+                  {% if SWIFTYPE %}
+                    <!-- blog search -->
+                    <div class="widget">
 
                       <h3>Blog Search</h3>
 
                       <form action="#" method="get" class="blog-search col-lg-12 nomargin nopadding">
                           <div class="input-group input-group-lg">
-                              <input type="text" class="form-control" name="s" id="st-search-input" placeholder="..." />
-                              <!-- <span class="input-group-btn"> -->
-                                  <!-- <button class="btn btn-primary"><i class="fa fa-search"></i> -->
-                                  <!-- </button> -->
-                              <!-- </span> -->
-                              <script type="text/javascript">
-                                var Swiftype = window.Swiftype || {};
-                                  (function() {
-                                    Swiftype.key = 'WtytQt13PHfL1RDsFXrD';
+                            <input type="text" class="form-control" name="s" id="st-search-input" placeholder="..." />
+                            <script type="text/javascript">
+                              var Swiftype = window.Swiftype || {};
+                                (function() {
+                                  Swiftype.key = '{{SWIFTYPE}}';
 
-                                    /** DO NOT EDIT BELOW THIS LINE **/
-                                    var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-                                    script.src = "//s.swiftypecdn.com/embed.js";
-                                    var entry = document.getElementsByTagName('script')[0];
-                                    entry.parentNode.insertBefore(script, entry);
-                                  }());
-                                </script>
+                                  /** DO NOT EDIT BELOW THIS LINE **/
+                                  var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+                                  script.src = "//s.swiftypecdn.com/embed.js";
+                                  var entry = document.getElementsByTagName('script')[0];
+                                  entry.parentNode.insertBefore(script, entry);
+                                }());
+                            </script>
                           </div>
                       </form>
-                  </div>
-
+                    </div>
+                  {% endif %}
                   <!-- recent work -->
                   <!-- <div class="widget">
 

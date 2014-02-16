@@ -50,3 +50,10 @@
 
 <!-- Morenizr -->
 <script type="text/javascript" src="{{SITEURL}}/theme/js/modernizr.min.js"></script>
+
+<!-- google authorship -->
+{% for title, link in SOCIAL%}
+  {% if 'plus.google.com' in link %}
+    <a href="{{link}}?rel=author"></a>
+  {% endif %}
+{% endfor%}
