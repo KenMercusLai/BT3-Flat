@@ -3,7 +3,7 @@
 {%block content_area %}
   <!-- blog item -->
   
-    {% for article in articles[:DEFAULT_PAGINATION] %}
+    {% for article in articles[:POST_LIMIT] %}
       <div class="item">
         <div class="item-title">
           {% if article.link %}
