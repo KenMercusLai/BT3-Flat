@@ -85,30 +85,44 @@
 
                   </div>
 
-                  <!-- recent posts -->
-                  <!-- <div class="widget">
+                  <!-- Archives -->
+                  <div class="widget">
 
-                      <h3>Recent Posts</h3>
+                      <h3>Archives</h3>
+                    
+                      <!-- hide this part -->
+                      <div class="hidden">
+                        {% set templist = [] %}
+                        {% for article in articles %}
+                          {{ templist.append({'year': article.date|string|truncate(4, True, ''),
+                                              'month': article.date|string|truncate(7, True, '')|reverse|truncate(2, True, '')|reverse,
+                                              'title': article.title, 
+                                              'link': article.link,
+                                              'date': article.locale_date}) }}
+                        {% endfor %}
+                      </div>
 
-                      <ul>
-                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> This is a Gallery Post</a> 
-                              <small>23 June 2013 / 12:43</small>
-                          </li>
-                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> Blog Post With Text Only</a> 
-                              <small>23 June 2013 / 12:43</small>
-                          </li>
-                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> This is an Audio Post</a> 
-                              <small>23 June 2013 / 12:43</small>
-                          </li>
-                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> This is a Video Post</a> 
-                              <small>23 June 2013 / 12:43</small>
-                          </li>
-                          <li><a href="blog-post.html"><i class="fa fa-sign-out"></i> An awsome post</a> 
-                              <small>23 June 2013 / 12:43</small>
-                          </li>
+                      <ul class="tree">
+                        <li>
+                        {% for group in templist|groupby('year')|sort(reverse=True) %}
+                          <span><i class="fa fa-minus-square-o"></i>{{group.grouper}}</span>
+                            <ul>
+                              <li>
+                                {% for month in group.list|groupby('month')|sort(reverse=True) %}
+                                  <span><i class="fa fa-minus-square-o"></i>{{month.grouper}}</span>
+                                  <ul>
+                                    {% for article in month.list %}
+                                      <li><a href="{{article.link}}"><small>{{article.date}}</small>{{article.title}}</a></li>
+                                    {% endfor %}
+                                  </ul>
+                                {% endfor %}
+                              </li>
+                            </ul>
+                        {% endfor %}
+                        </li>
                       </ul>
 
-                  </div> -->
+                  </div>
 
               </div>
               <!-- /SIDEBAR -->

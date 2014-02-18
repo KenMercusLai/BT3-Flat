@@ -6,6 +6,20 @@
     // Add bootstrap table style to table elements
     $("article.content table").addClass('table').addClass('table-hover');
 
+    // create tree
+    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+    $('.tree li.parent_li > span').on('click', function (e) {
+        // var children = $(this).siblings('ul:first').find('> li');
+        var children = $(this).next('ul').find('> li');
+        if (children.is(":visible")) {
+            children.hide('fast');
+            $(this).attr('title', 'Expand this branch').find(' > i').removeClass('fa fa-minus-square-o').addClass('fa fa-plus-square-o');
+        } else {
+            children.show('fast');
+            $(this).attr('title', 'Collapse this branch').find(' > i').removeClass('fa fa-plus-square-o').addClass('fa fa-minus-square-o');
+        }
+        e.stopPropagation();
+    });
   //   // Allow videos to take the full width of a page
   //   $(".container").fitVids();
 
@@ -25,11 +39,11 @@
     $("article.content img").each(function(){
       // Until we properly generate thumbnails and their links on Pelican's side, we just link an image to itself.
       if ($(this).width() > $('article.content').width()) {
-        if ($(this).parents('a').length == 0) {
+        if ($(this).parents('a').length === 0) {
           $(this).wrap(
             $('<a/>').attr('href', $(this).attr('src'))
           );
-        };
+        }
 
         // Add a special class for images linking to videos
         var link_tag = $(this).closest('a');
