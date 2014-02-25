@@ -11,7 +11,7 @@
       <article class="container">
 
           <div class="row">
-              <div class="left col-md-9">
+              <div id="blog_main_area" class="left col-md-9" count={{articles|length}}>
                   {% block content_area %}
                   {% endblock %}
               </div>
@@ -109,10 +109,10 @@
                             <ul>
                               <li>
                                 {% for month in group.list|groupby('month')|sort(reverse=True) %}
-                                  <span><i class="fa fa-minus-square-o"></i>{{month.grouper}}</span>
+                                  <span><i class="fa fa-plus-square-o"></i>{{month.grouper}}</span>
                                   <ul>
                                     {% for article in month.list %}
-                                      <li><a href="{{article.link}}"><small>{{article.date}}</small>{{article.title}}</a></li>
+                                      <li style="display: none;"><a href="{{article.link}}"><small>{{article.date}}</small>{{article.title}}</a></li>
                                     {% endfor %}
                                   </ul>
                                 {% endfor %}

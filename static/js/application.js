@@ -20,20 +20,78 @@
         }
         e.stopPropagation();
     });
-  //   // Allow videos to take the full width of a page
-  //   $(".container").fitVids();
 
-  //   // Apply masonry smart layout, only when all images are loaded
-  //   // Source: http://stackoverflow.com/a/7257177
-  //   // TODO: try to hide re-pagination animation
-  //   var $container = $('.masonry');
-  //   if ($container.length) {
-  //     $container.imagesLoaded(function(){
-  //       $container.masonry({
-  //         itemSelector: '.thumbnail',
-  //       });
-  //     });
-  //   };
+    // static variable counter maker
+    function makeCounter() {
+        var count = 1;
+        return function(a) {
+            if (a === 0) {
+              return count;
+            }
+            else {
+              count = count + a;
+              return count;
+            }
+            
+        };
+    };
+
+    // ajax load blog index
+    var counter = makeCounter();
+    var index_num = counter(0);
+    var POST_LIMIT = 3;
+    var POST_COUNT = parseInt($('#blog_main_area').attr('count'), 10);
+    // alert(POST_COUNT);
+    $('#prev').on('click', function (e) {
+      index_num -= 1;
+      if (index_num === 0 ) {
+        index_num = 1;
+        // alert(index_num);
+        $(this).addClass('disabled');
+      } else {
+        // alert(index_num);
+        $('#next').removeClass('disabled');
+        $('#blog_main_area div.item').each( function(){
+          if ($(this).is(':visible')) {
+            $(this).hide('slow');
+          };
+        });
+      
+        $('#blog_main_area div.item').slice((index_num-1)*POST_LIMIT, (index_num)*POST_LIMIT) .each( function(){
+          $(this).show('slow');
+        }); 
+
+        if (index_num === 1) {
+          // alert(index_num);
+          $(this).addClass('disabled');
+        }     
+      }
+
+    });
+    $('#next').on('click', function (e) {
+      index_num += 1;
+      // alert(index_num);
+      $('#prev').removeClass('disabled');
+
+      if (index_num * POST_LIMIT <= POST_COUNT) {
+        // alert(index_num * POST_LIMIT);
+        $('#blog_main_area div.item').each( function(){
+          if ($(this).is(':visible')) {
+            $(this).hide('slow');
+          };
+        });
+
+        $('#blog_main_area div.item').slice((index_num-1)*POST_LIMIT, (index_num)*POST_LIMIT) .each( function(){
+          $(this).show('slow');
+        });   
+      }
+
+      if (index_num * POST_LIMIT >= POST_COUNT ) {
+        $(this).addClass('disabled');
+        index_num = ~~(POST_COUNT / POST_LIMIT);
+      };
+      // alert(index_num);
+    });
 
     // Activate zoom on content images in the main column and add an icon overlay (but ignore icons)
     $("article.content img").each(function(){
