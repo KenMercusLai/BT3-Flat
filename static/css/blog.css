@@ -1,6 +1,4 @@
-/** Blog
- **************************************************************** **/
- #blog {
+#blog {
   text-align:left;
   border:0;
   margin:0;
@@ -30,6 +28,7 @@
 #blog .item-title .label {
   font-size:10px;
   text-transform:uppercase;
+  font-weight: 400;
 }
 #blog .item h2 {
   margin:0;
@@ -88,6 +87,21 @@
 }
 #quick-blog .quick-item .btn {
   margin-top:0;
+}
+.fsize13 {
+  font-size: 13px !important;
+  line-height: 20px !important;
+}
+.fsize16 {
+  font-size: 16px !important;
+  line-height: 20px !important;
+}
+.socials {
+  float: right;
+  margin-top: -20px;
+}
+.container a.label, span.label {
+  font-weight: 400;
 }
 /** Responsive
  **************************************************************** **/
