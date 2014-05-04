@@ -10,6 +10,7 @@ I'm using it as my personal blog theme and you can take a look at [networktsukko
 the following part is my config file:
 ==========
 
+```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
@@ -122,3 +123,4 @@ PERSONAL_INFO = """My name is Ken Lai, a network engineer who is working & livin
 WORK_DESCRIPTION = ''
 # items to descripe a work, "type", "cover-image link", "title", "descption", "link"
 WORK_LIST = (('link', 'https://dl.dropboxusercontent.com/u/299446/BT3-Flat.png', 'BT3-Flat', 'A BT3 flat theme for pelican', 'https://github.com/KenMercusLai/plumage'),)
+```
