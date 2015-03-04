@@ -9,7 +9,7 @@
           {% if article.link %}
             <h2><a href="{{ article.link }}">{{article.title}} <i class="fa fa-external-link" target="_blank"></i></a></h2>
           {%else%}
-            <h2><a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a></h2>
+            <h2><a class="theme_link" href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a></h2>
           {%endif%}
           <a href="{{article.category.url}}" class="label label-default light"><i class="fa fa-dot-circle-o"></i> {{article.category}}</a> 
           <a href="{{ SITEURL }}/{{ article.url }}#disqus_thread" class="label label-default light"><i class="fa fa-comment-o"></i> ?? Comments</a>
@@ -38,7 +38,7 @@
         </p>
 
         <!-- read more button -->
-        <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
+        <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs theme_link"><i class="fa fa-sign-out"></i> READ MORE</a>
       </div>
     {% endfor %} 
     {% for article in articles[POST_LIMIT:] %}
@@ -76,7 +76,7 @@
         </p>
 
         <!-- read more button -->
-        <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
+        <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs theme_link"><i class="fa fa-sign-out"></i> READ MORE</a>
       </div>
     {% endfor %} 
   <!-- /blog item -->

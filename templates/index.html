@@ -289,12 +289,12 @@
                   </figure>
                 {% endif %}
                   {% if article.link %}
-                    <h4><a href="{{ article.link }}">{{article.title}} <i class="fa fa-external-link" target="_blank"></i></a></h4>
+                    <h4><a class="theme_link" href="{{ article.link }}">{{article.title}} <i class="fa fa-external-link" target="_blank"></i></a></h4>
                   {%else%}
-                    <h4><a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a></h4>
+                    <h4><a class="theme_link" href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a></h4>
                   {%endif%}
                   <p>{{article.summary}}</p>
-                  <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs"><i class="fa fa-sign-out"></i> READ MORE</a>
+                  <a href="{{ SITEURL }}/{{ article.url }}" class="btn btn-xs theme_link"><i class="fa fa-sign-out"></i> READ MORE</a>
                 </div>
               </div>
             {% endfor %} 
