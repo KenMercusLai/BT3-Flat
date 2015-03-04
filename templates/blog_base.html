@@ -82,7 +82,7 @@
 
             <ul>
               {#% for category in categories %#} {% for category, articles in categories %}
-              <li><a href="{{SITEURL}}/{{category.url}}"><i class="fa fa-dot-circle-o"></i> {{category.name}}</a>
+              <li><a class="side_link" href="{{SITEURL}}/{{category.url}}"><i class="fa fa-dot-circle-o"></i> {{category.name}}</a>
               </li>
               {% endfor %}
             </ul>
@@ -110,7 +110,7 @@
                     <ul>
                       {% for article in month.list %}
                       <li style="display: none;">
-                        <a href="{{ SITEURL }}/{{ article.url }}">
+                        <a class="side_link" href="{{ SITEURL }}/{{ article.url }}">
                           <small>{{article.date}}</small>{{article.title}}</a>
                       </li>
                       {% endfor %}

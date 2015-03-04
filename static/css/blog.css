@@ -117,6 +117,19 @@
 .styleColor, ul.bstrap-tabs li.active a, ul.bstrap-tabs li.active a i, #portfolio div.item a:hover i.fa, section.util-row h1, .pagination>li>a, .pagination>li>span, .pagination>li>a:hover, a {
   color:#1000FF;
 }
+
+.article_title {
+  color:#7E8344;
+}
+
+.side_link{
+  color:#7E8344;
+}
+
+.read_more_btn{
+  color:#7E8344;
+}
+
 a:hover {
   color:#999e52;
 }
