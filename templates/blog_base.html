@@ -94,34 +94,51 @@
 
             <h3>Archives</h3>
 
-            <!-- hide this part -->
+            <!-- Get all of the articles with their dates -->
             <div class="hidden">
-              {% set templist = [] %} {% for article in articles %} {{ templist.append({'year': article.date|string|truncate(4, True, ''), 'month': article.date|string|truncate(7, True, '')|reverse|truncate(2, True, '')|reverse, 'title': article.title, 'link': article.link, 'date': article.locale_date, 'url':article.url}) }} {% endfor %}
+            {% set templist = [] %}
+            {% for article in articles %}
+                {{ templist.append({'year': article.date|string|truncate(4, True, ''), 'month': article.date|string|truncate(7, True, '')|reverse|truncate(2, True, '')|reverse, 'title': article.title, 'link': article.link, 'date': article.locale_date, 'url':article.url}) }}
+            {% endfor %}
             </div>
 
-            <ul class="tree">
-              <li>
-                {% for group in templist|groupby('year')|sort(reverse=True) %}
-                <span><i class="fa fa-minus-square-o"></i>{{group.grouper}}</span>
-                <ul>
-                  <li>
+            <!-- If the user indicates they prefer a list.-->
+            {%- if ARCHIVE_LIST -%}
+                <!-- List everything in date sorted order -->
+                {%- for group in templist|groupby('year')|sort(reverse=True) -%}
                     {% for month in group.list|groupby('month')|sort(reverse=True) %}
-                    <span><i class="fa fa-plus-square-o"></i>{{month.grouper}}</span>
-                    <ul>
-                      {% for article in month.list %}
-                      <li style="display: none;">
-                        <a class="theme_link" href="{{ SITEURL }}/{{ article.url }}">
-                          <small>{{article.date}}</small>{{article.title}}</a>
-                      </li>
-                      {% endfor %}
-                    </ul>
-                    {% endfor %}
-                  </li>
-                </ul>
-                {% endfor %}
-              </li>
-            </ul>
+                        {%- for article in month.list -%}
+                            <a class="theme_link" href="{{ SITEURL }}/{{ article.url }}">
+                            <small>{{article.date}}</small>{{article.title}}</a>
+                        {%- endfor -%}
+                    {%- endfor -%}
+                {%- endfor -%}
 
+             <!-- Otherwise use the default tree listing -->
+            {% else %}
+                <ul class="tree">
+                    <li>
+                        {% for group in templist|groupby('year')|sort(reverse=True) %}
+                        <span><i class="fa fa-minus-square-o"></i>{{group.grouper}}</span>
+                        <ul>
+                            <li>
+                                {% for month in group.list|groupby('month')|sort(reverse=True) %}
+                                <span><i class="fa fa-plus-square-o"></i>{{month.grouper}}</span>
+                                <ul>
+                                    {% for article in month.list %}
+                                        <li style="display: none;">
+                                            <a class="theme_link" href="{{ SITEURL }}/{{ article.url }}">
+                                            <small>{{article.date}}</small>{{article.title}}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                {% endfor %}
+                            </li>
+                        </ul>
+                    {%- endfor -%}
+                    </li>
+                </ul>
+            {%- endif -%}
           </div>
 
         </div>
