@@ -1,4 +1,3 @@
-
 <head>
     {% include "_includes/header.html" %}
 </head>
@@ -34,50 +33,8 @@
 
 
     <!-- Main Nav -->
-    <header id="header">
+        {% include "_includes/nav.html" %}
 
-    <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container">
-
-        <!-- Mobile Menu Button -->
-        <button id="mobileMenu" class="fa fa-bars" type="button" data-toggle="collapse" data-target=".navbar-collapse"></button>
-
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand scrollTo" href="#home">
-            <img src="https://dl.dropboxusercontent.com/u/299446/logo-invert.png" alt="" width="50" height="50" /> 
-            <span class="hidden-xs">{{ SITENAME|e }}</span>
-            </a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-            <!-- Fullscreen Button - Unavailable for IE -->
-            <a href="#" class="btn-fullscreen"><i class="fa fa-external-link"></i></a>
-
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="#home" class="scrollTo">Home</a></li>
-            <li><a href="#about" class="scrollTo">About</a></li>
-            <li><a href="#work" class="scrollTo">Work</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            {% if LINKS %}
-                <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>
-                <ul class="dropdown-menu" style="background-color:#000">
-                {% for site_title, site_link in LINKS %}
-                    <li style="background-color:#000"><a href="{{site_link}}" target="_blank">{{site_title}}</a></li>
-                {% endfor %}
-                </ul>
-                </li>
-            {% endif %}
-            </ul>
-        </div><!-- /.navbar-collapse -->
-
-        </div>
-    </nav>
-
-    </header>
     <!-- /Main Nav -->
 
     <!-- ABOUT -->
