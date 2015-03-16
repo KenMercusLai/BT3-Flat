@@ -22,10 +22,18 @@
         <a href="#" class="btn-fullscreen"><i class="fa fa-external-link"></i></a>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="{{SITEURL}}/index.html#home">Home</a></li>
-          <li><a href="{{SITEURL}}/index.html#about">About</a></li>
-          <li><a href="{{SITEURL}}/index.html#work">Work</a></li>
-          <li><a href="{{SITEURL}}/blog.html">Blog</a></li>
+          <!-- If the user wants to make articles the home page then remove blog link, and make about and work links point to old home page. -->
+            {% if ARTICLES_HOME_PAGE %}
+            <li><a href="{{SITEURL}}/">Blog</a></li>
+            <li><a href="{{SITEURL}}/about.html#about">About</a></li>
+            <li><a href="{{SITEURL}}/about.html#about">Work</a></li>
+          <!-- Otherwise, use the theme defaults. -->
+          {% else %}
+            <li><a href="{{SITEURL}}/index.html#home">Home</a></li>
+            <li><a href="{{SITEURL}}/index.html#about">About</a></li>
+            <li><a href="{{SITEURL}}/index.html#work">Work</a></li>
+            <li><a href="{{SITEURL}}/blog.html">Blog</a></li>
+          {% endif %}
           {% if LINKS %}
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Links <b class="caret"></b></a>

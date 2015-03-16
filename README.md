@@ -7,6 +7,13 @@ BT3-Flat is a theme built on bootstrap 3 for [Pelican](http://getpelican.com) 3.
 
 [demo](http://kenmercuslai.github.io/blog/index.html)
 
+BT3-Flat configuration
+==========
+* ARCHIVE_LIST `Changes the right hand article listing from a tree representation
+to a list representation.`
+* ARTICLES_HOME_PAGE `Switches the \ (index) page from the 'about me' page to
+the list of articles.`
+
 the following part is my config file:
 ==========
 
