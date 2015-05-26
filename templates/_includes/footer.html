@@ -10,12 +10,16 @@
 
         <div class="col-md-6 copyright">
             {{ SITENAME|e }}
+            {% if COPYRIGHT %}
+            <br />{{ COPYRIGHT }}
+            {% else %}
             <br />2015 &copy; All Rights Reserved.
+            {% endif %}
         </div>
 
         <div class="col-md-6 text-right">
             {% for group_title, group_link in SOCIAL %}
-              <a href="{{group_link}}" class="social fa fa-{{group_title|lower}}"></a>
+              <a href="{{group_link}}" class="social fa fa-{{group_title|lower}}" target="_blank"></a>
             {% endfor %}
         </div>
 
@@ -28,8 +32,16 @@
 
 
 <!-- CORE FILES -->
+{% if USER_JQUERY %}
+<script type="text/javascript" src="{{USER_JQUERY}}"></script>
+{% else %}
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+{% endif %}
+{% if USER_BOOTSTRAP %}
+<script type="text/javascript" src="{{USER_BOOTSTRAP}}/js/bootstrap.min.js"></script>
+{% else %}
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+{% endif %}
 <script type="text/javascript" src="{{SITEURL}}/theme/js/jquery.isotope.js"></script>
 <script type="text/javascript" src="{{SITEURL}}/theme/js/masonry.js"></script>
 
@@ -74,6 +86,7 @@
   </script>
 {% endif %}
 
+{% if DISQUS_SITENAME %}
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
   var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
@@ -86,6 +99,7 @@
   (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
   }());
 </script>
+{% endif %}
 
 {% if PIWIK_URL and PIWIK_SITE_ID %}
     <script type="text/javascript">

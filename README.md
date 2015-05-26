@@ -122,6 +122,15 @@ SITEMAP = {
 FAVICON = 'https://dl.dropboxusercontent.com/u/299446/logo.png'
 ICON = 'https://dl.dropboxusercontent.com/u/299446/logo.png'
 SHORTCUT_ICON = 'https://dl.dropboxusercontent.com/u/299446/logo.png'
+# HEADER_IMAGE = 'Your local or remote URL'
+# COPYRIGHT = '2015 &copy; All Rights Reserved.'
+# Google fonts can be downloaded with
+# https://neverpanic.de/downloads/code/2014-03-19-downloading-google-web-fonts-for-local-hosting-fetch.sh'
+# Maybe you need to add missing mime types to your webserver configuration
+# USER_FONT = '/theme/fonts/font.css'
+# USER_BOOTSTRAP = '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4'
+# USER_FONTAWESOME = '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0'
+# USER_JQUERY = '//code.jquery.com/jquery-1.11.2.min.js'
 
 # About ME
 PERSONAL_PHOTO = "https://dl.dropboxusercontent.com/u/299446/thumb-400x400.png"

@@ -31,8 +31,12 @@
           {% else %}
             <li><a href="{{SITEURL}}/index.html#home">Home</a></li>
             <li><a href="{{SITEURL}}/index.html#about">About</a></li>
+            {% if WORK_DESCRIPTION %}
             <li><a href="{{SITEURL}}/index.html#work">Work</a></li>
+            {% endif %}
+            {% if articles %}
             <li><a href="{{SITEURL}}/blog.html">Blog</a></li>
+            {% endif %}
           {% endif %}
           {% if LINKS %}
             <li class="dropdown">
