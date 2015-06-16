@@ -122,7 +122,7 @@ SITEMAP = {
 FAVICON = 'https://dl.dropboxusercontent.com/u/299446/logo.png'
 ICON = 'https://dl.dropboxusercontent.com/u/299446/logo.png'
 SHORTCUT_ICON = 'https://dl.dropboxusercontent.com/u/299446/logo.png'
-# HEADER_IMAGE = 'Your local or remote URL'
+HEADER_IMAGE = 'https://dl.dropboxusercontent.com/u/299446/logo-invert.png'
 # COPYRIGHT = '2015 &copy; All Rights Reserved.'
 # Google fonts can be downloaded with
 # https://neverpanic.de/downloads/code/2014-03-19-downloading-google-web-fonts-for-local-hosting-fetch.sh'
